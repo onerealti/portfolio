@@ -28,7 +28,7 @@ lessons:
 
 ## Architecture Diagram
 
-```mermaid
+<div class="mermaid">
 graph TD
   Kong[API Gateway <br/> Kong] --> Payments[Payments <br/> Go]
   Kong --> Identity[Identity <br/> Go]
@@ -39,7 +39,7 @@ graph TD
   Identity --> Kafka
   Ledger --> Kafka
   Notifications --> Kafka
-```
+</div>
 
 ## Migration Timeline
 

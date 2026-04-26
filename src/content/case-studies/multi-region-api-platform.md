@@ -28,7 +28,7 @@ lessons:
 
 ## Infrastructure Layout
 
-```mermaid
+<div class="mermaid">
 graph TD
   Route53[Route 53 Latency Routing] --> US
   Route53 --> EU
@@ -54,4 +54,4 @@ graph TD
 
   PG1 -. Async Replication .-> PG2
   PG1 -. Async Replication .-> PG3
-```
+</div>
