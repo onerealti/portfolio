@@ -18,7 +18,7 @@ export const NAV_LINKS = [
 export const CONTACT = {
   email: 'hello@murtaza.dev',
   github: 'https://github.com/murtaza',
-  linkedin: 'https://linkedin.com/in/murtazaahmed',
+  linkedin: 'https://www.linkedin.com/in/murahmed/',
 } as const;
 
 // Homepage metrics
