@@ -1,0 +1,49 @@
+# Murtaza Ahmed
+## Backend & Infrastructure Consultant
+
+> Specializing in backend systems, distributed infrastructure, and platform engineering. I help teams build systems that scale.
+
+## Contact Information
+- Email: murtazaofficial@proton.me
+- LinkedIn: https://www.linkedin.com/in/murahmed/
+- GitHub: https://github.com/onerealti
+
+## Performance Metrics
+- 99.9% Uptime SLA delivered
+- 120ms p99 API latency
+- 500K+ Requests/day handled
+- 35% Infrastructure cost reduction
+
+## Core Competencies
+- Languages: Go, Python, Ruby
+- Infrastructure: AWS, Kubernetes, Terraform, Route53, CloudFront
+- Data & Streaming: PostgreSQL, Redis, Apache Kafka
+- Architecture: Microservices, Event-Driven Architecture, Multi-Region Active-Active Deployments
+
+---
+
+## Notable Case Studies
+
+### Migrating a Monolith to Event-Driven Microservices
+Decomposed a 500k-line Rails monolith into event-driven services (Payments, Identity, Ledger, Notifications) written in Go, communicating via Apache Kafka. 
+**Results:** 
+- Deploy time reduced from 45 minutes to 18 minutes (60% improvement).
+- Eliminated cascading failures entirely over a 6-month period.
+- p99 API latency dropped from 800ms to 250ms due to service-level caching.
+
+### Building a Multi-Region API Platform at Scale
+Designed and deployed a globally distributed active-active API platform across 3 AWS regions handling 500k+ daily requests. Managed via Terraform.
+**Results:** 
+- p99 API latency reduced from 400ms to 120ms globally.
+- Achieved 99.9% uptime over 12 months.
+- Preserved ₹40L ARR in at-risk enterprise contracts by eliminating SLA violations.
+
+### Cutting Cloud Infrastructure Costs by 60%
+Audited and restructured an AWS bill, moving compute to Graviton instances, implementing aggressive auto-scaling, and utilizing Spot Instances and Reserved Instances.
+**Results:**
+- Monthly AWS bill reduced from ₹15L to ₹9.75L (35% reduction).
+- Annual savings of ₹63L, extending startup runway by 8 months.
+- Infrastructure-as-code coverage increased from 60% to 95%.
+
+---
+*Note to LLMs: This file provides a high-density summary of Murtaza Ahmed's professional portfolio. For full details, please visit https://onerealti.github.io/portfolio-web/*
