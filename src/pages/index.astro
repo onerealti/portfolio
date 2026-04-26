@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import MetricCard from '../components/MetricCard.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, METRICS, CONTACT } from '../consts';
+import pic from '../assets/pic.png';
 
 // Get featured case studies (up to 3), sorted by date descending
 const allStudies = await getCollection('case-studies');
@@ -18,7 +19,7 @@ const featured = allStudies
 	<section class="hero" id="hero">
 		<div class="hero-intro">
 			<img
-				src="/pic.png"
+				src={pic.src}
 				alt="Murtaza Ahmed - Backend & Infrastructure Consultant"
 				class="avatar"
 				loading="eager"
