@@ -5,7 +5,7 @@ export const SITE_TITLE = 'Murtaza Ahmed - Backend & Infrastructure Consultant';
 export const SITE_DESCRIPTION =
   'Backend systems, distributed infrastructure, and platform engineering. I help teams build systems that scale.';
 
-export const SITE_URL = 'https://onerealti.github.io/portfolio-web/';
+export const SITE_URL = 'https://onerealti.github.io/portfolio/';
 
 // Navigation links
 export const NAV_LINKS = [

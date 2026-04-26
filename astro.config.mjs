@@ -10,7 +10,7 @@ export default defineConfig({
 	site: 'https://onerealti.github.io',
 	// If deploying to a subpath (e.g., https://onerealti.github.io/portfolio-web/),
 	// uncomment and set the base path:
-	base: '/portfolio-web',
+	base: '/portfolio',
 	output: 'static',
 	integrations: [mdx(), sitemap()],
 	fonts: [

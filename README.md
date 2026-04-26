@@ -118,11 +118,11 @@ Edit `src/consts.ts` to update:
 
 1. Push to GitHub
 2. Go to **Settings → Pages → Source** → select **GitHub Actions**
-3. Ensure `site` and `base` in `astro.config.mjs` match your GitHub Pages URL (already configured to `/portfolio-web`).
+3. Ensure `site` and `base` in `astro.config.mjs` match your GitHub Pages URL (already configured to `/portfolio`).
 
 ### ⚠️ Important: Internal Links (`resolvePath`)
 
-Because this site is hosted on a GitHub Pages subpath (`/portfolio-web`), **all internal links** must be wrapped with the `resolvePath()` utility to prevent 404 errors.
+Because this site is hosted on a GitHub Pages subpath (`/portfolio`), **all internal links** must be wrapped with the `resolvePath()` utility to prevent 404 errors.
 
 If you add a new button or link anywhere in the Astro files, do it like this:
 ```astro

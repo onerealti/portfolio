@@ -11,7 +11,7 @@ This document provides a high-density summary of Murtaza Ahmed's professional ba
 - **Email**: murtazaofficial@proton.me
 - **GitHub**: https://github.com/onerealti
 - **LinkedIn**: https://www.linkedin.com/in/murahmed/
-- **Portfolio**: https://onerealti.github.io/portfolio-web/
+- **Portfolio**: https://onerealti.github.io/portfolio/
 
 ## Technical Expertise
 - **Languages**: Go, Python, Ruby (Rails), SQL
