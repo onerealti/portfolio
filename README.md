@@ -56,6 +56,18 @@ Any content here renders in the Architecture section of the case study page.
 Use this for diagrams, code blocks, or additional detail.
 ```
 
+## Architecture Diagrams
+
+We use **Mermaid.js** for rendering architecture diagrams dynamically. To add a diagram to the body of your case study, use the following syntax (note: use `<div>` tags instead of markdown code blocks to prevent Astro from breaking the syntax):
+
+```html
+<div class="mermaid">
+graph TD
+  A["API Gateway"] --> B["Backend Service"]
+  B --> C[("PostgreSQL")]
+</div>
+```
+
 3. That's it. No layout or component changes needed. The content collection schema validates your frontmatter and the site auto-generates pages at `/case-studies/your-project-name/`.
 
 ## Project Structure
@@ -106,15 +118,26 @@ Edit `src/consts.ts` to update:
 
 1. Push to GitHub
 2. Go to **Settings → Pages → Source** → select **GitHub Actions**
-3. Update `site` in `astro.config.mjs` to your GitHub Pages URL
-4. If deploying to a subpath (e.g., `https://user.github.io/repo-name/`), uncomment and set `base` in `astro.config.mjs`
+3. Ensure `site` and `base` in `astro.config.mjs` match your GitHub Pages URL (already configured to `/portfolio-web`).
+
+### ⚠️ Important: Internal Links (`resolvePath`)
+
+Because this site is hosted on a GitHub Pages subpath (`/portfolio-web`), **all internal links** must be wrapped with the `resolvePath()` utility to prevent 404 errors.
+
+If you add a new button or link anywhere in the Astro files, do it like this:
+```astro
+---
+import { resolvePath } from '../consts';
+---
+<a href={resolvePath('/contact/')}>Contact Me</a>
+```
 
 ### How it works
 
 On every push to `main`, the GitHub Actions workflow:
 
 1. Installs dependencies
-2. Builds the static site
+2. Builds the static site (using Astro's `npm run build`)
 3. Deploys the `dist/` folder to GitHub Pages
 
 ## Design Principles
