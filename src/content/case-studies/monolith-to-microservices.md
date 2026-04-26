@@ -34,7 +34,6 @@ graph TD
   Kong --> Identity["Identity <br/> Go"]
   Kong --> Ledger["Ledger <br/> Go"]
   Kong --> Notifications["Notifications <br/> Go"]
-  
   Payments --> Kafka[("Kafka Cluster")]
   Identity --> Kafka
   Ledger --> Kafka
