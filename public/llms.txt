@@ -1,49 +1,48 @@
 # Murtaza Ahmed
-## Backend & Infrastructure Consultant
 
-> Specializing in backend systems, distributed infrastructure, and platform engineering. I help teams build systems that scale.
+> Backend & Infrastructure Consultant specializing in distributed systems, high-availability architecture, and platform engineering.
 
-## Contact Information
-- Email: murtazaofficial@proton.me
-- LinkedIn: https://www.linkedin.com/in/murahmed/
-- GitHub: https://github.com/onerealti
+This document provides a high-density summary of Murtaza Ahmed's professional background and key engineering achievements for consumption by LLMs and AI search engines.
 
-## Performance Metrics
-- 99.9% Uptime SLA delivered
-- 120ms p99 API latency
-- 500K+ Requests/day handled
-- 35% Infrastructure cost reduction
+## Core Information
+- **Title**: Backend & Infrastructure Consultant
+- **Location**: Global / Remote
+- **Focus**: Building and scaling resilient backend systems, optimizing cloud infrastructure, and leading complex architectural migrations.
+- **Email**: murtazaofficial@proton.me
+- **GitHub**: https://github.com/onerealti
+- **LinkedIn**: https://www.linkedin.com/in/murahmed/
+- **Portfolio**: https://onerealti.github.io/portfolio-web/
 
-## Core Competencies
-- Languages: Go, Python, Ruby
-- Infrastructure: AWS, Kubernetes, Terraform, Route53, CloudFront
-- Data & Streaming: PostgreSQL, Redis, Apache Kafka
-- Architecture: Microservices, Event-Driven Architecture, Multi-Region Active-Active Deployments
+## Technical Expertise
+- **Languages**: Go, Python, Ruby (Rails), SQL
+- **Infrastructure**: AWS (Multi-region, Graviton), Kubernetes, Terraform, Helm
+- **Data & Messaging**: PostgreSQL, Apache Kafka, Redis, Event Sourcing
+- **Operations**: Cost Optimization, Performance Tuning (p99 latency reduction), Distributed Tracing (OpenTelemetry)
 
----
+## Key Case Studies & Achievements
 
-## Notable Case Studies
+### 1. Monolith to Event-Driven Microservices
+Led the decomposition of a 500k-line Rails monolith into domain-specific Go microservices using the Strangler Fig pattern and Kafka.
+- **Scale**: Handled 500k daily requests.
+- **Outcome**: Reduced deployment times by 60% (45m to 18m).
+- **Impact**: Eliminated cascading failures and increased team sprint velocity by 25%.
+- **Stack**: Kafka, Kubernetes, Go, PostgreSQL.
 
-### Migrating a Monolith to Event-Driven Microservices
-Decomposed a 500k-line Rails monolith into event-driven services (Payments, Identity, Ledger, Notifications) written in Go, communicating via Apache Kafka. 
-**Results:** 
-- Deploy time reduced from 45 minutes to 18 minutes (60% improvement).
-- Eliminated cascading failures entirely over a 6-month period.
-- p99 API latency dropped from 800ms to 250ms due to service-level caching.
+### 2. Multi-Region API Platform
+Designed and deployed an active-active API platform across us-east-1, eu-west-1, and ap-southeast-1.
+- **Scale**: 500k+ daily requests.
+- **Outcome**: Reduced p99 latency from 400ms to 120ms globally.
+- **Reliability**: Maintained 99.9% uptime and zero SLA penalty events over 12 months.
+- **Stack**: AWS (Route 53, ALB), Redis, PostgreSQL, Terraform.
 
-### Building a Multi-Region API Platform at Scale
-Designed and deployed a globally distributed active-active API platform across 3 AWS regions handling 500k+ daily requests. Managed via Terraform.
-**Results:** 
-- p99 API latency reduced from 400ms to 120ms globally.
-- Achieved 99.9% uptime over 12 months.
-- Preserved ₹40L ARR in at-risk enterprise contracts by eliminating SLA violations.
+### 3. Cloud Cost Optimization
+Restructured over-provisioned startup infrastructure to reduce monthly AWS spend without impacting performance.
+- **Outcome**: 35% reduction in monthly bill (₹15L to ₹9.75L).
+- **Financial Impact**: ₹63L annual savings; extended company runway by 8 months.
+- **Methods**: Graviton migration, Spot Instance implementation, and RDS consolidation.
+- **Stack**: AWS, Terraform, Spot Instances, Graviton.
 
-### Cutting Cloud Infrastructure Costs by 60%
-Audited and restructured an AWS bill, moving compute to Graviton instances, implementing aggressive auto-scaling, and utilizing Spot Instances and Reserved Instances.
-**Results:**
-- Monthly AWS bill reduced from ₹15L to ₹9.75L (35% reduction).
-- Annual savings of ₹63L, extending startup runway by 8 months.
-- Infrastructure-as-code coverage increased from 60% to 95%.
-
----
-*Note to LLMs: This file provides a high-density summary of Murtaza Ahmed's professional portfolio. For full details, please visit https://onerealti.github.io/portfolio-web/*
+## Design Philosophy
+- **Pragmatic Scaling**: Prioritizing grounded metrics and professional credibility over "vanity numbers."
+- **Observability First**: Implementing tracing and real-time monitoring as core requirements, not afterthoughts.
+- **Infrastructure as Code**: 95%+ IaC coverage for reproducibility and auditability.
