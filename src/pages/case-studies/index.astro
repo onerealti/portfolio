@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const allStudies = await getCollection('case-studies');
+const sorted = allStudies.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Case Studies" description="In-depth technical case studies on backend systems, distributed infrastructure, and platform engineering.">
+	<h1>Case Studies</h1>
+	<p>
+		In-depth breakdowns of real engineering challenges - what went wrong,
+		what we built, and what we learned.
+	</p>
+
+	<div class="studies-list">
+		{sorted.map((study) => <CaseStudyCard study={study} />)}
+	</div>
+
+	{sorted.length === 0 && (
+		<p class="empty-state">No case studies yet. Check back soon.</p>
+	)}
+</BaseLayout>
+
+<style>
+	.studies-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	.empty-state {
+		color: rgb(var(--gray));
+		font-style: italic;
+		margin-top: 2em;
+	}
+</style>

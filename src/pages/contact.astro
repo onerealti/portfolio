@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CONTACT } from '../consts';
+---
+
+<BaseLayout title="Contact" description="Get in touch for consulting on backend systems, distributed infrastructure, and platform engineering.">
+	<h1>Get in Touch</h1>
+	<p>
+		I'm available for consulting engagements focused on backend architecture,
+		distributed systems, and infrastructure reliability. Reach out if you'd
+		like to discuss a project.
+	</p>
+
+	<section class="contact-methods">
+		<div class="contact-item" id="contact-email">
+			<h3>Email</h3>
+			<a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+			<p>Best for project inquiries and detailed discussions.</p>
+		</div>
+
+		<div class="contact-item" id="contact-github">
+			<h3>GitHub</h3>
+			<a href={CONTACT.github} target="_blank" rel="noopener noreferrer">
+				{CONTACT.github.replace('https://', '')}
+			</a>
+			<p>Check out my open-source work and contributions.</p>
+		</div>
+
+		<div class="contact-item" id="contact-linkedin">
+			<h3>LinkedIn</h3>
+			<a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">
+				{CONTACT.linkedin.replace('https://', '')}
+			</a>
+			<p>Connect for professional networking.</p>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.contact-methods {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+	}
+
+	.contact-item {
+		padding: 1.25em 1.5em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		background-color: var(--color-bg-card);
+	}
+
+	.contact-item h3 {
+		margin: 0 0 0.25em 0;
+		font-size: 1em;
+		font-weight: 700;
+	}
+
+	.contact-item a {
+		font-size: 0.875rem;
+		word-break: break-all;
+	}
+
+	.contact-item p {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+		margin: 0.25em 0 0 0;
+	}
+</style>

@@ -1,63 +1,125 @@
-# Astro Starter Kit: Blog
+# Murtaza Ahmed - Backend & Infrastructure Portfolio
 
-```sh
-npm create astro@latest -- --template blog
+A static portfolio site built with [Astro](https://astro.build) for a backend / infrastructure / distributed systems consultant.
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Adding a Case Study
 
-Features:
+1. Create a new `.md` file in `src/content/case-studies/`:
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+```bash
+src/content/case-studies/your-project-name.md
+```
 
-## 🚀 Project Structure
+2. Use this frontmatter template:
 
-Inside of your Astro project, you'll see the following folders and files:
+```yaml
+---
+title: "Your Case Study Title"
+description: "A one-line summary of the project."
+date: 2025-01-15
+tags: ["Go", "Kubernetes", "PostgreSQL"]
+featured: true  # Set to true to show on homepage (max 3 shown)
+metricHighlight: "Key result metric"  # Optional — shown as badge on cards
 
-```text
-├── public/
+# Structured sections (all required)
+problem: "Description of the problem you solved."
+architecture: "High-level description of the system you built."
+decisions:
+  - "Key decision 1 and why"
+  - "Key decision 2 and why"
+results:
+  - "Quantified result 1"
+  - "Quantified result 2"
+lessons:
+  - "What you learned or trade-offs made"
+---
+
+## Optional Markdown Body
+
+Any content here renders in the Architecture section of the case study page.
+Use this for diagrams, code blocks, or additional detail.
+```
+
+3. That's it. No layout or component changes needed. The content collection schema validates your frontmatter and the site auto-generates pages at `/case-studies/your-project-name/`.
+
+## Project Structure
+
+```
+├── .github/workflows/deploy.yml    # GitHub Pages auto-deploy
+├── public/                         # Static assets (favicon)
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── assets/fonts/               # Local font files
+│   ├── components/
+│   │   ├── BaseHead.astro          # <head> meta tags, SEO
+│   │   ├── Header.astro            # Site navigation
+│   │   ├── Footer.astro            # Site footer
+│   │   ├── MetricCard.astro        # Homepage metric display
+│   │   ├── CaseStudyCard.astro     # Case study list card
+│   │   └── FormattedDate.astro     # Date formatting
+│   ├── content/
+│   │   └── case-studies/*.md       # Your case study content
+│   ├── layouts/
+│   │   ├── BaseLayout.astro        # Page wrapper
+│   │   └── CaseStudy.astro         # Case study page layout
+│   ├── pages/
+│   │   ├── index.astro             # Homepage
+│   │   ├── contact.astro           # Contact page
+│   │   └── case-studies/
+│   │       ├── index.astro         # Case studies listing
+│   │       └── [slug].astro        # Dynamic case study pages
+│   ├── styles/global.css           # Global styles
+│   ├── consts.ts                   # Site config (title, links, metrics)
+│   └── content.config.ts           # Content collection schema
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Configuration
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Edit `src/consts.ts` to update:
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+- **SITE_TITLE** / **SITE_DESCRIPTION** — SEO and header
+- **NAV_LINKS** — Navigation items
+- **CONTACT** — Email, GitHub, LinkedIn URLs
+- **METRICS** — Homepage metrics display
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Deployment (GitHub Pages)
 
-## 🧞 Commands
+### Setup
 
-All commands are run from the root of the project, from a terminal:
+1. Push to GitHub
+2. Go to **Settings → Pages → Source** → select **GitHub Actions**
+3. Update `site` in `astro.config.mjs` to your GitHub Pages URL
+4. If deploying to a subpath (e.g., `https://user.github.io/repo-name/`), uncomment and set `base` in `astro.config.mjs`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### How it works
 
-## 👀 Want to learn more?
+On every push to `main`, the GitHub Actions workflow:
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Installs dependencies
+2. Builds the static site
+3. Deploys the `dist/` folder to GitHub Pages
 
-## Credit
+## Design Principles
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- **Mobile-first** — Single-column, minimum 16px font, ~65ch max width
+- **Documentation-style** — Clean, neutral, typography-focused
+- **Performance** — Minimal JS, static output, optimized fonts
+- **Maintainability** — Content is Markdown, config is centralized

@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'case-studies'>['data'];
+
+const { title, description, date, tags, problem, architecture, decisions, results, lessons, metricHighlight } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<article class="case-study">
+				<!-- Header -->
+				<header class="study-header">
+					<div class="study-meta">
+						<FormattedDate date={date} />
+					</div>
+					<h1>{title}</h1>
+					<p class="study-description">{description}</p>
+					{metricHighlight && (
+						<div class="highlight-badge">{metricHighlight}</div>
+					)}
+					<div class="tags">
+						{tags.map((tag) => <span class="tag">{tag}</span>)}
+					</div>
+				</header>
+
+				<hr />
+
+				<!-- Problem -->
+				<section id="problem">
+					<h2>Problem</h2>
+					<p>{problem}</p>
+				</section>
+
+				<!-- Architecture -->
+				<section id="architecture">
+					<h2>Architecture</h2>
+					<p>{architecture}</p>
+					<!-- Markdown body content (diagrams, extra detail) renders here -->
+					<div class="prose">
+						<slot />
+					</div>
+				</section>
+
+				<!-- Key Decisions -->
+				<section id="decisions">
+					<h2>Key Decisions</h2>
+					<ul>
+						{decisions.map((d) => <li>{d}</li>)}
+					</ul>
+				</section>
+
+				<!-- Results -->
+				<section id="results">
+					<h2>Results</h2>
+					<ul class="results-list">
+						{results.map((r) => <li>{r}</li>)}
+					</ul>
+				</section>
+
+				<!-- Lessons / Trade-offs -->
+				<section id="lessons">
+					<h2>Lessons & Trade-offs</h2>
+					<ul>
+						{lessons.map((l) => <li>{l}</li>)}
+					</ul>
+				</section>
+
+				<!-- Back link -->
+				<hr />
+				<nav class="back-nav">
+					<a href="/case-studies/" id="back-to-studies">&larr; All Case Studies</a>
+				</nav>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.study-header {
+		margin-bottom: 1.5em;
+	}
+
+	.study-meta {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+		margin-bottom: 0.5em;
+	}
+
+	.study-description {
+		color: rgb(var(--gray));
+		margin-bottom: 1em;
+	}
+
+	.highlight-badge {
+		display: inline-block;
+		font-size: 0.875rem;
+		font-weight: 700;
+		color: var(--accent);
+		background-color: var(--color-accent-subtle);
+		padding: 0.25em 0.5em;
+		border-radius: 4px;
+		margin-bottom: 1em;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		color: rgb(var(--gray-dark));
+		background-color: rgba(var(--gray-light), 40%);
+		padding: 0.15em 0.5em;
+		border-radius: 4px;
+	}
+
+	section {
+		margin-bottom: 2em;
+	}
+
+	.results-list li {
+		margin-bottom: 0.5em;
+	}
+
+	.prose {
+		margin-top: 1em;
+	}
+
+	.prose :global(p) {
+		margin-bottom: 1em;
+	}
+
+	.prose :global(img) {
+		margin: 1em 0;
+	}
+
+	.back-nav {
+		margin-top: 1em;
+	}
+
+	.back-nav a {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+	}
+
+	.back-nav a:hover {
+		color: var(--accent);
+	}
+</style>

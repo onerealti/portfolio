@@ -1,49 +1,188 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import MetricCard from '../components/MetricCard.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, METRICS, CONTACT } from '../consts';
+
+// Get featured case studies (up to 3), sorted by date descending
+const allStudies = await getCollection('case-studies');
+const featured = allStudies
+	.filter((s) => s.data.featured)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 3);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Hero / Positioning -->
+	<section class="hero" id="hero">
+		<div class="hero-intro">
+			<img
+				src="/pic.png"
+				alt="Murtaza Ahmed - Backend & Infrastructure Consultant"
+				class="avatar"
+				loading="eager"
+			/>
+			<div>
+				<h1>Backend & Infrastructure Engineering</h1>
+				<p class="subtitle">
+					I design, build, and fix distributed systems. Specializing in
+					high-throughput APIs, cloud infrastructure, and platform reliability
+					for teams that can't afford downtime.
+				</p>
+			</div>
+		</div>
+		<div class="hero-cta">
+			<a href="/case-studies/" class="cta-primary" id="cta-case-studies">View Case Studies</a>
+			<a href={`mailto:${CONTACT.email}`} class="cta-secondary" id="cta-contact">Get in Touch</a>
+		</div>
+	</section>
+
+	<!-- Metrics -->
+	<section class="metrics-section" id="metrics">
+		<h2>By the Numbers</h2>
+		<div class="metrics-grid">
+			{METRICS.map((m) => <MetricCard value={m.value} label={m.label} />)}
+		</div>
+	</section>
+
+	<!-- Featured Case Studies -->
+	{featured.length > 0 && (
+		<section class="featured-section" id="featured">
+			<h2>Featured Work</h2>
+			<div class="studies-list">
+				{featured.map((study) => <CaseStudyCard study={study} />)}
+			</div>
+			<a href="/case-studies/" class="view-all" id="view-all-studies">View all case studies &rarr;</a>
+		</section>
+	)}
+</BaseLayout>
+
+<style>
+	/* Hero */
+	.hero {
+		margin-bottom: 3em;
+	}
+
+	.hero-intro {
+		display: flex;
+		align-items: center;
+		gap: 1.5em;
+		margin-bottom: 1.5em;
+	}
+
+	.avatar {
+		width: 140px;
+		height: 140px;
+		min-width: 140px;
+		min-height: 140px;
+		border-radius: 50%;
+		object-fit: cover;
+		flex-shrink: 0;
+		border: 3px solid rgb(var(--gray-light));
+		box-shadow: 0 4px 12px rgba(var(--gray), 25%);
+	}
+
+	.hero h1 {
+		margin-bottom: 0.5rem;
+	}
+
+	.subtitle {
+		color: rgb(var(--gray));
+		max-width: 55ch;
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 720px) {
+		.hero-intro {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1em;
+		}
+
+		.avatar {
+			width: 100px;
+			height: 100px;
+			min-width: 100px;
+			min-height: 100px;
+		}
+	}
+
+	.hero-cta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+	}
+
+	.cta-primary,
+	.cta-secondary {
+		display: inline-block;
+		padding: 0.5em 1.5em;
+		border-radius: 6px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: background-color 0.15s ease, color 0.15s ease;
+	}
+
+	.cta-primary {
+		background-color: rgb(var(--black));
+		color: var(--color-bg-base);
+	}
+
+	.cta-primary:hover {
+		background-color: var(--accent);
+		color: var(--color-bg-base);
+		text-decoration: none;
+	}
+
+	.cta-secondary {
+		border: 1px solid rgb(var(--gray-light));
+		color: rgb(var(--gray));
+		background-color: var(--color-bg-base);
+	}
+
+	.cta-secondary:hover {
+		border-color: rgb(var(--gray));
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+	}
+
+	/* Metrics */
+	.metrics-section {
+		margin-bottom: 3em;
+	}
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75em;
+	}
+
+	@media (min-width: 720px) {
+		.metrics-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	/* Featured */
+	.featured-section {
+		margin-bottom: 2em;
+	}
+
+	.studies-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		margin-bottom: 1.5em;
+	}
+
+	.view-all {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+	}
+
+	.view-all:hover {
+		color: var(--accent);
+	}
+</style>

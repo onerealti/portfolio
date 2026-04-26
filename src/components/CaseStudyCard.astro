@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	study: CollectionEntry<'case-studies'>;
+}
+
+const { study } = Astro.props;
+const { title, description, date, tags, metricHighlight } = study.data;
+---
+
+<a href={`/case-studies/${study.id}/`} class="case-study-card" id={`card-${study.id}`}>
+	<article>
+		<div class="card-header">
+			<time datetime={date.toISOString()}>
+				{date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+			</time>
+			{metricHighlight && <span class="metric-badge">{metricHighlight}</span>}
+		</div>
+		<h3>{title}</h3>
+		<p>{description}</p>
+		<div class="tags">
+			{tags.map((tag) => <span class="tag">{tag}</span>)}
+		</div>
+	</article>
+</a>
+
+<style>
+	.case-study-card {
+		display: block;
+		text-decoration: none;
+		padding: 1.25em 1.5em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		background-color: var(--color-bg-card);
+		color: rgb(var(--gray-dark));
+		transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	}
+
+	.case-study-card:hover {
+		border-color: var(--accent);
+		box-shadow: 0 2px 6px rgba(var(--gray), 15%);
+		text-decoration: none;
+	}
+
+	article {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4em;
+	}
+
+	.card-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5em;
+	}
+
+	time {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+	}
+
+	.metric-badge {
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--accent);
+		background-color: var(--color-accent-subtle);
+		padding: 0.15em 0.5em;
+		border-radius: 4px;
+		white-space: nowrap;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 1.25em;
+		color: rgb(var(--black));
+		line-height: 1.2;
+	}
+
+	p {
+		margin: 0;
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+		line-height: 1.7;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em;
+		margin-top: 0.25em;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		color: rgb(var(--gray-dark));
+		background-color: rgba(var(--gray-light), 40%);
+		padding: 0.15em 0.5em;
+		border-radius: 4px;
+	}
+</style>
