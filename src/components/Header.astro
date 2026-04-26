@@ -1,5 +1,5 @@
 ---
-import { NAV_LINKS, CONTACT } from '../consts';
+import { NAV_LINKS, CONTACT, resolvePath } from '../consts';
 import ThemeIcon from './ThemeIcon.astro';
 
 const currentPath = Astro.url.pathname;
@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 
 <header id="site-header">
 	<div class="header-inner">
-		<a href="/" class="logo" id="nav-home-logo">murtaza</a>
+		<a href={resolvePath('/')} class="logo" id="nav-home-logo">murtaza</a>
 
 		<button
 			class="menu-toggle"
@@ -26,7 +26,7 @@ const currentPath = Astro.url.pathname;
 		<nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
 			{NAV_LINKS.map((link) => (
 				<a
-					href={link.href}
+					href={resolvePath(link.href)}
 					class:list={[{ active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
 					id={`nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
 				>

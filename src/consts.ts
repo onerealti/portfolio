@@ -28,3 +28,10 @@ export const METRICS = [
   { value: '500K+', label: 'Requests/day handled' },
   { value: '35%', label: 'Infra cost reduction' },
 ] as const;
+
+// Helper to resolve paths against the base URL (for GitHub Pages deployment)
+export const resolvePath = (path: string) => {
+  const base = import.meta.env.BASE_URL;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${base}${cleanPath}`;
+};

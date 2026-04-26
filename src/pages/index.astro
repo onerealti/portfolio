@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CaseStudyCard from '../components/CaseStudyCard.astro';
 import MetricCard from '../components/MetricCard.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, METRICS, CONTACT } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, METRICS, CONTACT, resolvePath } from '../consts';
 import pic from '../assets/pic.png';
 
 // Get featured case studies (up to 3), sorted by date descending
@@ -34,7 +34,7 @@ const featured = allStudies
 			</div>
 		</div>
 		<div class="hero-cta">
-			<a href="/case-studies/" class="cta-primary" id="cta-case-studies">View Case Studies</a>
+			<a href={resolvePath('/case-studies/')} class="cta-primary" id="cta-case-studies">View Case Studies</a>
 			<a href={`mailto:${CONTACT.email}`} class="cta-secondary" id="cta-contact">Get in Touch</a>
 		</div>
 	</section>
@@ -50,11 +50,13 @@ const featured = allStudies
 	<!-- Featured Case Studies -->
 	{featured.length > 0 && (
 		<section class="featured-section" id="featured">
-			<h2>Featured Work</h2>
+			<div class="section-header">
+				<h2>Featured Work</h2>
+				<a href={resolvePath('/case-studies/')} class="view-all" id="view-all-studies">View all case studies &rarr;</a>
+			</div>
 			<div class="studies-list">
 				{featured.map((study) => <CaseStudyCard study={study} />)}
 			</div>
-			<a href="/case-studies/" class="view-all" id="view-all-studies">View all case studies &rarr;</a>
 		</section>
 	)}
 </BaseLayout>
