@@ -71,8 +71,8 @@
   institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
   degree: "Bachelor of Engineering",
   location: "Hyderabad, TG",
-  date: "Sept 2024 -- May 2028",
-  gpa: "8.9/10.0",
-  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation", "Exploring adaptive resource scheduling and heterogeneous LLM inference orchestrators"),
+  date: "May 2028",
+  gpa: "",
+  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
 )
 

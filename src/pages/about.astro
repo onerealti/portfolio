@@ -86,11 +86,13 @@ skillsList.forEach(skill => {
                   {edu.data.institution}
                 </h5>
                 <span class="text-sm text-neutral-600 dark:text-neutral-400">
-                  {edu.data.dateStart} - {edu.data.dateEnd}
+                  {edu.data.dateStart ? `${edu.data.dateStart} - ` : ""}{edu.data.dateEnd}
                 </span>
               </div>
               <div class="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                {edu.data.degree} in {edu.data.fieldOfStudy} &bull; GPA: {edu.data.gpa}
+                {edu.data.degree}
+                {edu.data.fieldOfStudy && ` in ${edu.data.fieldOfStudy}`}
+                {edu.data.gpa && ` • GPA: ${edu.data.gpa}`}
               </div>
               <div class="text-sm opacity-80 mt-1">
                 {edu.body}

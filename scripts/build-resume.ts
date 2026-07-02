@@ -127,7 +127,7 @@ function generateTypstMarkup(variant: string): string {
   role: "${exp.role}",
   location: "${exp.location}",
   date: "${exp.dateStart} -- ${exp.dateEnd}",
-  bullets: (${bulletsStr}),
+  bullets: (${bulletsStr}${exp.bullets.length === 1 ? "," : ""}),
 )
 \n`;
   });
@@ -138,9 +138,9 @@ function generateTypstMarkup(variant: string): string {
     const skillsStr = proj.skills.map(s => `"${s}"`).join(", ");
     markup += `#proj-item(
   title: "${proj.title}",
-  skills: (${skillsStr}),
+  skills: (${skillsStr}${proj.skills.length === 1 ? "," : ""}),
   date: "${proj.date}",
-  bullets: (${bulletsStr}),
+  bullets: (${bulletsStr}${proj.bullets.length === 1 ? "," : ""}),
 )
 \n`;
   });
@@ -150,7 +150,7 @@ function generateTypstMarkup(variant: string): string {
     const itemsStr = items.map(i => `"${i}"`).join(", ");
     markup += `#skill-category(
   category: "${category}",
-  items: (${itemsStr}),
+  items: (${itemsStr}${items.length === 1 ? "," : ""}),
 )
 `;
   }
@@ -163,9 +163,9 @@ function generateTypstMarkup(variant: string): string {
   institution: "${edu.institution}",
   degree: "${edu.degree}",
   location: "${edu.location}",
-  date: "${edu.dateStart} -- ${edu.dateEnd}",
+  date: "${edu.dateStart ? `${edu.dateStart} -- ` : ""}${edu.dateEnd}",
   gpa: "${edu.gpa ?? ""}",
-  details: (${detailsStr}),
+  details: (${detailsStr}${edu.details && edu.details.length === 1 ? "," : ""}),
 )
 \n`;
   });

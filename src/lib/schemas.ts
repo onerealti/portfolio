@@ -27,9 +27,9 @@ export const ExperienceSchema = z.object({
 export const EducationSchema = z.object({
   institution: z.string(),
   degree: z.string(),
-  fieldOfStudy: z.string(),
+  fieldOfStudy: z.string().optional(),
   location: z.string(),
-  dateStart: z.string(),
+  dateStart: z.string().optional(),
   dateEnd: z.string(),
   gpa: z.string().optional(),
   details: z.array(z.string()).optional(),
