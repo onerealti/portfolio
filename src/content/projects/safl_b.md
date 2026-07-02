@@ -2,6 +2,7 @@
 title: "Smart Agri Four-Legged Bot (SAFL-B)"
 description: "An autonomous robotics systems integration project, awarded 1st Place at MAKEFORHYDERABAD Makeathon, featuring multi-joint motor control and noise telemetry."
 repoURL: "https://github.com/onerealti/safl-b"
+demoURL: "https://onerealti.github.io/astro-safl/"
 date: "Dec 2025"
 skills: ["C", "Python", "UART/Serial", "I2C", "GPIO", "Hardware Control"]
 bullets:
