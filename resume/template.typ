@@ -18,9 +18,9 @@
   // Configure text properties
   set text(
     font: "Adobe Garamond Pro",
-    size: 10.5pt,
+    size: 11pt,
     fill: rgb("#0f172a"), // Slate 900
-    spacing: 120%,
+    spacing: 115%,
   )
 
   // Configure list properties
@@ -35,7 +35,7 @@
     #block(spacing: 4pt)[
       #text(size: 19pt, weight: "bold", tracking: 0.5pt)[#name] \
       #v(2pt)
-      #text(size: 10.5pt, weight: "medium", fill: rgb("#1e3a8a"), tracking: 0.25pt)[#title]
+      #text(size: 11pt, weight: "medium", fill: rgb("#1e3a8a"), tracking: 0.25pt)[#title]
     ]
     #v(2pt)
     
@@ -46,7 +46,7 @@
     #if github != "" { contact-items.push(link(github)[#github.replace("https://", "")]) }
     #if linkedin != "" { contact-items.push(link(linkedin)[#linkedin.replace("https://", "")]) }
     
-    #text(size: 9pt, fill: rgb("#475569"))[
+    #text(size: 9.5pt, fill: rgb("#475569"))[
       #contact-items.join([ #h(6pt) • #h(6pt) ])
     ]
   ]
@@ -63,7 +63,7 @@
   show heading: it => [
     #v(8pt)
     #text(
-      size: 11pt,
+      size: 12pt,
       weight: "bold",
       fill: rgb("#1e3a8a"), // Deep Blue
     )[#it.body]
@@ -87,8 +87,8 @@
   block(width: 100%, spacing: 6pt)[
     #grid(
       columns: (1fr, auto),
-      [*#role* \ #text(weight: "medium", fill: rgb("#334155"))[#company]],
-      align(right)[*#date* \ #text(style: "italic", fill: rgb("#475569"), size: 9pt)[#location]]
+      [#strong(company)], align(right)[#strong(location)],
+      [#emph(role)], align(right)[#date]
     )
     #v(-2pt)
     #list(
@@ -111,12 +111,12 @@
   block(width: 100%, spacing: 6pt)[
     #grid(
       columns: (1fr, auto),
-      [*#degree* \ #text(weight: "medium", fill: rgb("#334155"))[#institution]],
-      align(right)[*#date* \ #text(style: "italic", fill: rgb("#475569"), size: 9pt)[#location]]
+      [#strong(institution)], align(right)[#strong(location)],
+      [#emph(degree)], align(right)[#date]
     )
     #if gpa != "" [
       #v(-3pt)
-      #text(size: 9pt)[GPA: #gpa]
+      #text(size: 9.5pt)[GPA: #gpa]
     ]
     #if details.len() > 0 [
       #v(2pt)
