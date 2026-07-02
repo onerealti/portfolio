@@ -17,7 +17,7 @@
 
   // Configure text properties
   set text(
-    font: "Ubuntu",
+    font: "Adobe Garamond Pro",
     size: 10pt,
     fill: rgb("#111827"), // Slate 900
     spacing: 120%,

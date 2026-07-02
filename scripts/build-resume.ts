@@ -190,7 +190,7 @@ variants.forEach(variant => {
 
     // Compile Typst to PDF using local typst binary
     const pdfPath = path.join(PUBLIC_DIR, `resume-${variant}.pdf`);
-    const typstCmd = `./bin/typst compile ${typstPath} ${pdfPath}`;
+    const typstCmd = `./bin/typst compile --font-path ./AGPro ${typstPath} ${pdfPath}`;
     execSync(typstCmd, { stdio: "inherit" });
     console.log(`  📄 Compiled PDF for: ${variant} -> public/resume-${variant}.pdf`);
 
