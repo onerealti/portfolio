@@ -1,0 +1,10 @@
+{
+  "name": "Alex Rivers",
+  "title": "Systems & Infrastructure Engineer",
+  "email": "alex.rivers@example.com",
+  "phone": "+1 (555) 019-2834",
+  "website": "https://alexrivers.dev",
+  "github": "https://github.com/alexrivers",
+  "linkedin": "https://linkedin.com/in/alex-rivers",
+  "summary": "Computer Science student specializing in distributed systems, storage engines, and ML training infrastructure. Experienced in building transactional key-value databases, implementing consensus algorithms, and optimizing high-throughput data processing pipelines. Passionate about kernel development, low-latency network programming, and platform automation."
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Triton Inference Server",
+  "category": "ML & AI Infrastructure",
+  "level": "Proficient",
+  "profiles": [
+    "ml",
+    "distributed"
+  ],
+  "importance": 3
+}

@@ -1,0 +1,11 @@
+{
+  "name": "PostgreSQL & Redis",
+  "category": "Systems & Infrastructure",
+  "level": "Advanced",
+  "profiles": [
+    "backend",
+    "distributed",
+    "infrastructure"
+  ],
+  "importance": 6
+}

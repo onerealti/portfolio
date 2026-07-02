@@ -1,0 +1,11 @@
+{
+  "name": "gRPC & Protobuf",
+  "category": "Systems & Infrastructure",
+  "level": "Expert",
+  "profiles": [
+    "backend",
+    "distributed",
+    "infrastructure"
+  ],
+  "importance": 3
+}

@@ -1,0 +1,213 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { RESUME, SITE } from "@consts";
+
+// Load content
+const profiles = await getCollection("profile");
+const profile = profiles[0]?.data || {
+  name: SITE.NAME,
+  title: "Systems Engineer",
+  email: SITE.EMAIL,
+  phone: "",
+  website: "",
+  github: "",
+  linkedin: "",
+  summary: "",
+};
+
+const experienceList = (await getCollection("experience"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+const educationList = (await getCollection("education"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+const projectsList = (await getCollection("projects"))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+const skillsList = (await getCollection("skills"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+// Group skills by category
+const skillsByCategory: Record<string, string[]> = {};
+skillsList.forEach(s => {
+  const cat = s.data.category;
+  if (!skillsByCategory[cat]) {
+    skillsByCategory[cat] = [];
+  }
+  skillsByCategory[cat].push(s.data.name);
+});
+---
+
+<PageLayout title={RESUME.TITLE} description={RESUME.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <!-- Page Header with Download Options -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-black/10 dark:border-white/10 pb-6 animate">
+        <div>
+          <h1 class="text-3xl font-bold text-black dark:text-white">Resume</h1>
+          <p class="text-neutral-500 dark:text-neutral-400 mt-1">Rendered dynamically from content collection domain models.</p>
+        </div>
+        
+        <div class="flex flex-col gap-2">
+          <a href="/resume.pdf" class="inline-flex items-center justify-center px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-medium rounded-lg shadow-sm transition-colors duration-200" download>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download PDF Resume
+          </a>
+          
+          <div class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+            <span>Other variants:</span>
+            <div class="flex flex-wrap gap-x-2 mt-1">
+              <a href="/resume-backend.pdf" class="hover:underline text-blue-600 dark:text-blue-400" download>Backend</a> &bull;
+              <a href="/resume-distributed.pdf" class="hover:underline text-blue-600 dark:text-blue-400" download>Distributed</a> &bull;
+              <a href="/resume-ml.pdf" class="hover:underline text-blue-600 dark:text-blue-400" download>ML Infra</a> &bull;
+              <a href="/resume-infrastructure.pdf" class="hover:underline text-blue-600 dark:text-blue-400" download>Infrastructure</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HTML Resume Body -->
+      <div class="p-6 md:p-8 border border-black/10 dark:border-white/10 rounded-xl bg-white dark:bg-neutral-900 shadow-sm space-y-8 animate">
+        
+        <!-- Resume Header -->
+        <div class="text-center space-y-2 border-b border-black/10 dark:border-white/10 pb-6">
+          <h2 class="text-3xl font-extrabold text-neutral-900 dark:text-neutral-100">{profile.name}</h2>
+          <p class="text-blue-700 dark:text-blue-400 font-semibold text-lg">{profile.title}</p>
+          <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-neutral-600 dark:text-neutral-400">
+            <a href={`mailto:${profile.email}`} class="hover:underline">{profile.email}</a>
+            <span>&bull;</span>
+            <span>{profile.phone}</span>
+            <span>&bull;</span>
+            <a href={profile.website} target="_blank" class="hover:underline">{profile.website.replace("https://", "")}</a>
+            <span>&bull;</span>
+            <a href={profile.github} target="_blank" class="hover:underline">{profile.github.replace("https://", "")}</a>
+            <span>&bull;</span>
+            <a href={profile.linkedin} target="_blank" class="hover:underline">{profile.linkedin.replace("https://", "")}</a>
+          </div>
+          {profile.summary && (
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto italic mt-4 leading-relaxed">
+              "{profile.summary}"
+            </p>
+          )}
+        </div>
+
+        <!-- Experience Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-blue-800 dark:text-blue-400 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-800 pb-1">
+            Professional Experience
+          </h3>
+          <div class="space-y-6">
+            {experienceList.map(exp => (
+              <div class="space-y-2">
+                <div class="flex justify-between items-baseline flex-wrap gap-x-2">
+                  <div class="font-bold text-neutral-900 dark:text-neutral-100">
+                    {exp.data.role}
+                  </div>
+                  <div class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">
+                    {exp.data.dateStart} &mdash; {exp.data.dateEnd}
+                  </div>
+                </div>
+                <div class="flex justify-between items-baseline text-sm flex-wrap gap-x-2 text-neutral-600 dark:text-neutral-400">
+                  <span class="font-bold text-neutral-800 dark:text-neutral-300">{exp.data.company}</span>
+                  <span class="italic">{exp.data.location}</span>
+                </div>
+                <ul class="list-disc list-outside ml-5 text-sm space-y-1.5 text-neutral-700 dark:text-neutral-300">
+                  {exp.data.bullets.map((bullet: string) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-blue-800 dark:text-blue-400 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-800 pb-1">
+            Key Projects
+          </h3>
+          <div class="space-y-6">
+            {projectsList.map(proj => (
+              <div class="space-y-2">
+                <div class="flex justify-between items-baseline flex-wrap gap-x-2">
+                  <div class="font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
+                    {proj.data.title}
+                    <span class="text-xs font-normal text-neutral-500 dark:text-neutral-400">
+                      ({proj.data.skills.join(", ")})
+                    </span>
+                  </div>
+                  <div class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">
+                    {proj.data.date}
+                  </div>
+                </div>
+                <ul class="list-disc list-outside ml-5 text-sm space-y-1.5 text-neutral-700 dark:text-neutral-300">
+                  {proj.data.bullets.map((bullet: string) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-blue-800 dark:text-blue-400 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-800 pb-1">
+            Technical Skills
+          </h3>
+          <div class="grid grid-cols-1 gap-2 text-sm">
+            {Object.entries(skillsByCategory).map(([category, items]) => (
+              <div class="grid grid-cols-[140px_1fr] gap-x-4 border-b border-neutral-100 dark:border-neutral-800/50 pb-2">
+                <span class="font-bold text-neutral-800 dark:text-neutral-300">{category}:</span>
+                <span class="text-neutral-700 dark:text-neutral-400">{items.join(", ")}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-blue-800 dark:text-blue-400 uppercase tracking-wider border-b border-neutral-200 dark:border-neutral-800 pb-1">
+            Education
+          </h3>
+          <div class="space-y-4">
+            {educationList.map(edu => (
+              <div class="space-y-1">
+                <div class="flex justify-between items-baseline flex-wrap gap-x-2">
+                  <div class="font-bold text-neutral-900 dark:text-neutral-100">
+                    {edu.data.degree} in {edu.data.fieldOfStudy}
+                  </div>
+                  <div class="text-sm font-semibold text-neutral-500 dark:text-neutral-400">
+                    {edu.data.dateStart} &mdash; {edu.data.dateEnd}
+                  </div>
+                </div>
+                <div class="flex justify-between items-baseline text-sm flex-wrap gap-x-2 text-neutral-600 dark:text-neutral-400">
+                  <span class="font-semibold text-neutral-800 dark:text-neutral-300">{edu.data.institution}</span>
+                  <span class="italic">{edu.data.location}</span>
+                </div>
+                {edu.data.gpa && (
+                  <div class="text-xs text-neutral-600 dark:text-neutral-400">
+                    GPA: <span class="font-semibold text-neutral-800 dark:text-neutral-200">{edu.data.gpa}</span>
+                  </div>
+                )}
+                {edu.data.details && (
+                  <ul class="list-disc list-outside ml-5 text-xs text-neutral-600 dark:text-neutral-400 mt-1 space-y-1">
+                    {edu.data.details.map((d: string) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </Container>
+</PageLayout>

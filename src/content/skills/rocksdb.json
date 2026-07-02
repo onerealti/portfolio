@@ -1,0 +1,10 @@
+{
+  "name": "RocksDB",
+  "category": "Systems & Infrastructure",
+  "level": "Advanced",
+  "profiles": [
+    "backend",
+    "distributed"
+  ],
+  "importance": 5
+}

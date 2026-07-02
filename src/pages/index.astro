@@ -1,0 +1,153 @@
+---
+import { getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { SITE, HOME, SOCIALS } from "@consts";
+
+// Fetch the profile
+const profiles = await getCollection("profile");
+const profile = profiles[0]?.data || {
+  name: SITE.NAME,
+  title: "Systems Engineer",
+  summary: "Welcome to my portfolio.",
+  email: SITE.EMAIL,
+  github: "https://github.com",
+  linkedin: "https://linkedin.com",
+};
+
+// Fetch latest writing (blog)
+const writing = (await getCollection("writing"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+// Fetch recent projects
+const projects = (await getCollection("projects"))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10))
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+// Fetch experience
+const experiences = (await getCollection("experience"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10))
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+---
+
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+    <h4 class="animate font-semibold text-black dark:text-white">
+      Hi, I'm {profile.name} <span class="text-xl">👋🏻</span> 
+    </h4>
+    <div class="space-y-16">
+      <section>
+        <article class="space-y-4">
+          <p class="animate text-lg font-medium text-neutral-600 dark:text-neutral-300">
+            {profile.title}
+          </p>
+          <p class="animate leading-relaxed">
+            {profile.summary}
+          </p>
+        </article>
+      </section>
+
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+            Latest writing
+          </h5>
+          <Link href="/blog">
+            See all posts
+          </Link>
+        </div>
+        <ul class="flex flex-col gap-4">
+          {writing.map(post => (
+            <li>
+              <ArrowCard entry={post} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+            Work Experience
+          </h5>
+          <Link href="/resume">
+            See full resume
+          </Link>
+        </div>
+        <ul class="flex flex-col space-y-6">
+          {experiences.map(entry => (
+            <li>
+              <div class="flex justify-between items-baseline flex-wrap gap-x-2">
+                <div class="font-semibold text-black dark:text-white text-base">
+                  {entry.data.role}
+                </div>
+                <div class="text-sm opacity-75">
+                  {entry.data.dateStart} - {entry.data.dateEnd}
+                </div>
+              </div>
+              <div class="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                {entry.data.company} &bull; {entry.data.location}
+              </div>
+              {entry.data.bullets && (
+                <ul class="mt-2 list-disc list-inside text-sm space-y-1 opacity-80">
+                  {entry.data.bullets.slice(0, 2).map((bullet: string) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="animate space-y-6">
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white">
+            Recent projects
+          </h5>
+          <Link href="/projects">
+            See all projects
+          </Link>
+        </div>
+        <ul class="flex flex-col gap-4">
+          {projects.map(project => (
+            <li>
+              <ArrowCard entry={project} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="animate space-y-4">
+        <h5 class="font-semibold text-black dark:text-white">
+          Let's Connect
+        </h5>
+        <article>
+          <p>
+            If you want to get in touch with me about database systems, distributed infrastructure, or systems research, feel free to reach out.
+          </p>
+        </article>
+        <ul class="flex flex-wrap gap-2">
+          {SOCIALS.map(SOCIAL => (
+            <li class="flex gap-x-2 text-nowrap">
+              <Link href={SOCIAL.HREF} external aria-label={`${profile.name} on ${SOCIAL.NAME}`}>
+                {SOCIAL.NAME}
+              </Link>
+              {"/"}
+            </li>
+          ))}
+          <li class="line-clamp-1">
+            <Link href={`mailto:${profile.email}`} aria-label={`Email ${profile.name}`}>
+              {profile.email}
+            </Link>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

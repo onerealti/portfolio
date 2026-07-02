@@ -1,0 +1,12 @@
+{
+  "name": "Go",
+  "category": "Languages",
+  "level": "Expert",
+  "profiles": [
+    "backend",
+    "distributed",
+    "infrastructure",
+    "ml"
+  ],
+  "importance": 3
+}

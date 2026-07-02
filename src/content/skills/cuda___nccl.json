@@ -1,0 +1,10 @@
+{
+  "name": "CUDA & NCCL",
+  "category": "ML & AI Infrastructure",
+  "level": "Proficient",
+  "profiles": [
+    "ml",
+    "distributed"
+  ],
+  "importance": 2
+}

@@ -1,0 +1,111 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { ABOUT, SITE } from "@consts";
+
+// Load content
+const profiles = await getCollection("profile");
+const profile = profiles[0]?.data || {
+  name: SITE.NAME,
+  title: "Systems Engineer",
+  summary: "Welcome to my portfolio.",
+};
+
+const educationList = (await getCollection("education"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+const skillsList = (await getCollection("skills"))
+  .sort((a, b) => (a.data.importance ?? 10) - (b.data.importance ?? 10));
+
+// Group skills by category
+const skillsByCategory: Record<string, typeof skillsList> = {};
+skillsList.forEach(skill => {
+  const cat = skill.data.category;
+  if (!skillsByCategory[cat]) {
+    skillsByCategory[cat] = [];
+  }
+  skillsByCategory[cat].push(skill);
+});
+---
+
+<PageLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
+  <Container>
+    <div class="space-y-12">
+      <!-- Intro Section -->
+      <section class="animate space-y-4">
+        <h3 class="font-semibold text-black dark:text-white text-2xl">
+          About Me
+        </h3>
+        <p class="leading-relaxed text-neutral-800 dark:text-neutral-300">
+          I am {profile.name}, a Computer Science student specializing in building robust systems, distributed databases, and high-throughput infrastructure. I love working at the intersection of systems engineering, hardware, and performance tuning.
+        </p>
+        <p class="leading-relaxed text-neutral-800 dark:text-neutral-300">
+          My primary engineering interests lie in low-level kernel abstractions, consensus algorithms, database engines, and building tooling that enables developers to ship scalable codebases.
+        </p>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="animate space-y-6">
+        <h4 class="font-semibold text-black dark:text-white text-xl">
+          Technical Competencies
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {Object.entries(skillsByCategory).map(([category, skills]) => (
+            <div class="border border-black/10 dark:border-white/10 rounded-lg p-4 bg-neutral-50 dark:bg-neutral-900/50">
+              <h5 class="font-bold text-neutral-900 dark:text-neutral-100 border-b border-black/10 dark:border-white/10 pb-2 mb-3">
+                {category}
+              </h5>
+              <div class="flex flex-wrap gap-2">
+                {skills.map(skill => (
+                  <span class="px-2.5 py-1 text-xs font-semibold rounded-md bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200" title={skill.data.level}>
+                    {skill.data.name}
+                    {skill.data.level && (
+                      <span class="text-[10px] font-normal text-neutral-500 ml-1">
+                        ({skill.data.level})
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="animate space-y-6">
+        <h4 class="font-semibold text-black dark:text-white text-xl">
+          Education
+        </h4>
+        <div class="space-y-6">
+          {educationList.map(edu => (
+            <div class="border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 space-y-2">
+              <div class="flex justify-between items-baseline flex-wrap gap-x-2">
+                <h5 class="font-semibold text-black dark:text-white text-lg">
+                  {edu.data.institution}
+                </h5>
+                <span class="text-sm text-neutral-600 dark:text-neutral-400">
+                  {edu.data.dateStart} - {edu.data.dateEnd}
+                </span>
+              </div>
+              <div class="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                {edu.data.degree} in {edu.data.fieldOfStudy} &bull; GPA: {edu.data.gpa}
+              </div>
+              <div class="text-sm opacity-80 mt-1">
+                {edu.body}
+              </div>
+              {edu.data.details && (
+                <ul class="list-disc list-inside text-sm space-y-1 opacity-80 mt-2">
+                  {edu.data.details.map((detail: string) => (
+                    <li>{detail}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

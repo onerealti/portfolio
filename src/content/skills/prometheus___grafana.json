@@ -1,0 +1,12 @@
+{
+  "name": "Prometheus & Grafana",
+  "category": "Tools",
+  "level": "Advanced",
+  "profiles": [
+    "backend",
+    "distributed",
+    "infrastructure",
+    "ml"
+  ],
+  "importance": 2
+}

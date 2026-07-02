@@ -1,0 +1,78 @@
+[
+  {
+    "id": "mvcc_deep_dive",
+    "title": "Building MVCC: Concurrency and Snapshot Isolation in Storage Engines",
+    "description": "An architectural analysis of lock-free Multi-Version Concurrency Control (MVCC), transaction commit ordering, and memory garbage collection in LSM-Tree engines.",
+    "category": "blog",
+    "url": "/blog/mvcc_deep_dive",
+    "date": "2024-05-10",
+    "tags": [
+      "C++",
+      "Databases",
+      "Concurrency",
+      "Storage Engines"
+    ]
+  },
+  {
+    "id": "raft_lessons",
+    "title": "Lessons from Building a Raft Consensus Engine",
+    "description": "A deep dive into the engineering challenges of implementing Raft: managing split-brain scenarios, optimizing read-index latency, and validation via Jepsen testing.",
+    "category": "blog",
+    "url": "/blog/raft_lessons",
+    "date": "2024-12-15",
+    "tags": [
+      "Go",
+      "Distributed Systems",
+      "Raft",
+      "Testing"
+    ]
+  },
+  {
+    "id": "lsm_db",
+    "title": "AetherDB: MVCC Key-Value Engine",
+    "description": "A high-performance LSM-Tree transactional storage engine in C++ featuring multi-version concurrency control and write-ahead logs for crash safety.",
+    "category": "project",
+    "url": "/projects/lsm_db",
+    "date": "May 2024",
+    "tags": [
+      "C++",
+      "LSM-Tree",
+      "MVCC",
+      "POSIX",
+      "WAL",
+      "Transactions"
+    ]
+  },
+  {
+    "id": "ml_orchestrator",
+    "title": "TensorFlow & PyTorch ML Training Orchestrator",
+    "description": "A Kubernetes-native orchestration pipeline and custom scheduler for training large language models utilizing pipeline and tensor parallelism.",
+    "category": "project",
+    "url": "/projects/ml_orchestrator",
+    "date": "Mar 2025",
+    "tags": [
+      "Python",
+      "PyTorch",
+      "Kubernetes",
+      "CUDA",
+      "gRPC",
+      "Docker"
+    ]
+  },
+  {
+    "id": "raft_consensus",
+    "title": "Distributed Raft Consensus Engine",
+    "description": "A production-grade implementation of the Raft consensus protocol in Go, featuring dynamic membership changes, log compaction, and linearizable reads.",
+    "category": "project",
+    "url": "/projects/raft_consensus",
+    "date": "Dec 2024",
+    "tags": [
+      "Go",
+      "Raft",
+      "gRPC",
+      "Protobuf",
+      "Linearizability",
+      "Jepsen"
+    ]
+  }
+]
