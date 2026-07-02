@@ -24,7 +24,7 @@ export async function GET(context: Context) {
       title: item.data.title,
       description: item.data.description,
       pubDate: new Date(item.data.date),
-      link: `/${item.collection}/${item.id.replace(/\.(md|mdx)$/, "")}/`,
+      link: `/${item.collection === "writing" ? "blog" : item.collection}/${item.id.replace(/\.(md|mdx)$/, "")}/`,
     })),
   });
 }
