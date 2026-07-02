@@ -56,16 +56,16 @@
 = Projects
 #proj-item(
   title: "Smart Agri Four-Legged Bot (SAFL-B)",
-  skills: ("C", "Python", "UART/Serial", "I2C", "GPIO", "Hardware Control"),
-  date: "Dec 2025",
-  bullets: ("Awarded 1st Place at the MAKEFORHYDERABAD 2-Day Makeathon for autonomous robotics systems integration.", "Implemented deterministic UART/Serial communication protocols for multi-joint motor control.", "Developed telemetry stabilization routines to reduce terrain-induced sensor and image noise."),
+  skills: ("C", "Python", "TensorRT", "NVIDIA Jetson Nano", "Arduino Due", "SolidWorks", "FEA", "UART/Serial"),
+  date: "May 2026",
+  bullets: ("Awarded 1st Place at the city-wide MAKEFORHYDERABAD Makeathon (organized by Titan & SIT Hyderabad) for autonomous robotics integration.", "Designed a hybrid 3mm steel chassis and custom 3D-printed modular articulated planar legs featuring passive compliance and internal wire routing channels.", "Validated structural load paths using Finite Element Analysis (FEA) under static vertical loads, bumps, and probe insertions with a minimum safety factor of 2.04.", "Integrated a local CNN weed classification model on NVIDIA Jetson Nano, achieving real-time inference (9.2 FPS) using TensorRT FP16 acceleration.", "Designed low-level kinematic control systems using an Arduino Due to orchestrate H-Bridge DC motor actuators and high-current ESCs."),
 )
 
 #proj-item(
   title: "Deterministic Workspace Provisioning",
-  skills: ("Bash", "Linux", "Arch Linux", "Podman", "Git"),
+  skills: ("Bash", "Linux", "Arch Linux", "Podman", "Docker", "Git"),
   date: "June 2025",
-  bullets: ("Built automated provisioning pipelines for lightweight Linux workstation deployment using Arch Linux and shell automation.", "Configured container runtimes (Docker/Podman) and developer tools to deploy reproducible workspace layers."),
+  bullets: ("Built automated provisioning scripts for lightweight developer workstation deployment using Arch Linux and custom dotfiles.", "Configured layered build pipelines to build reproducible container environments, separating high-current ML layers from system packages.", "Automated dependency setups, window manager configurations (i3wm), and performance optimizations for Intel/NVIDIA drivers."),
 )
 
 = Technical Skills

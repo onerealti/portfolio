@@ -1,36 +1,36 @@
 [
   {
-    "id": "mvcc_deep_dive",
-    "title": "Building MVCC: Concurrency and Snapshot Isolation in Storage Engines",
-    "description": "An architectural analysis of lock-free Multi-Version Concurrency Control (MVCC), transaction commit ordering, and memory garbage collection in LSM-Tree engines.",
+    "id": "edge_inference_tensorrt",
+    "title": "Optimizing Edge Computer Vision Pipelines with TensorRT",
+    "description": "A technical deep dive on porting PyTorch models, calibrating FP16 precision, and stabilizing execution loops under constrained GPU memory buffers.",
     "category": "blog",
-    "url": "/blog/mvcc_deep_dive",
-    "date": "2024-05-10",
+    "url": "/blog/edge_inference_tensorrt",
+    "date": "Feb 2026",
     "tags": [
-      "C++",
-      "Databases",
-      "Concurrency",
-      "Storage Engines"
+      "Edge AI",
+      "TensorRT",
+      "Jetson Nano",
+      "PyTorch"
     ]
   },
   {
-    "id": "raft_lessons",
-    "title": "Lessons from Building a Raft Consensus Engine",
-    "description": "A deep dive into the engineering challenges of implementing Raft: managing split-brain scenarios, optimizing read-index latency, and validation via Jepsen testing.",
+    "id": "llm_cluster_orchestration",
+    "title": "Orchestrating Heterogeneous LLM Clusters: A Resilient Policy Engine Approach",
+    "description": "A research article discussing resource allocation, workload scheduling, and multi-objective policy engines for LLM inference on mixed compute systems.",
     "category": "blog",
-    "url": "/blog/raft_lessons",
-    "date": "2024-12-15",
+    "url": "/blog/llm_cluster_orchestration",
+    "date": "June 2026",
     "tags": [
-      "Go",
       "Distributed Systems",
-      "Raft",
-      "Testing"
+      "LLM",
+      "Kubernetes",
+      "Scheduling"
     ]
   },
   {
     "id": "deterministic_workspace",
     "title": "Deterministic Workspace Provisioning",
-    "description": "Automated configuration and deployment pipelines for lightweight, reproducible Arch Linux desktop workstations.",
+    "description": "Infrastructure-as-code configuration pipelines for lightweight, reproducible Arch Linux desktop workstations using shell automation and Podman containers.",
     "category": "project",
     "url": "/projects/deterministic_workspace",
     "date": "June 2025",
@@ -39,23 +39,26 @@
       "Linux",
       "Arch Linux",
       "Podman",
+      "Docker",
       "Git"
     ]
   },
   {
     "id": "safl_b",
     "title": "Smart Agri Four-Legged Bot (SAFL-B)",
-    "description": "An autonomous robotics systems integration project, awarded 1st Place at MAKEFORHYDERABAD Makeathon, featuring multi-joint motor control and noise telemetry.",
+    "description": "A precision agriculture quadruped wheeled rover featuring real-time TensorRT weed detection, FEA structural validation, and multi-sensor telemetry.",
     "category": "project",
     "url": "/projects/safl_b",
-    "date": "Dec 2025",
+    "date": "May 2026",
     "tags": [
       "C",
       "Python",
-      "UART/Serial",
-      "I2C",
-      "GPIO",
-      "Hardware Control"
+      "TensorRT",
+      "NVIDIA Jetson Nano",
+      "Arduino Due",
+      "SolidWorks",
+      "FEA",
+      "UART/Serial"
     ]
   }
 ]
