@@ -80,12 +80,3 @@
   details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
 )
 
-#edu-item(
-  institution: "International School Dammam",
-  degree: "High School Diploma",
-  location: "Dammam, KSA",
-  date: "2024",
-  gpa: "",
-  details: (),
-)
-
