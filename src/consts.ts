@@ -2,7 +2,7 @@ import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
   NAME: "Murtaza S. Ahmed",
-  EMAIL: "murtazaofficial@proton.me",
+  EMAIL: "murtazaofficial@protonmail.com",
   NUM_POSTS_ON_HOMEPAGE: 3,
   NUM_WORKS_ON_HOMEPAGE: 2,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
@@ -10,7 +10,7 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Murtaza S. Ahmed - Embedded & Distributed Systems Engineer. Portfolio focusing on edge AI, IoT hardware interfaces, and decentralized networks.",
+  DESCRIPTION: "Murtaza S. Ahmed - Systems & ML Infrastructure Engineer. Portfolio focusing on AI workloads scheduling, GPU cluster orchestration, and embedded systems.",
 };
 
 export const ABOUT: Metadata = {
@@ -50,6 +50,6 @@ export const SOCIALS: Socials = [
   },
   { 
     NAME: "linkedin",
-    HREF: "https://linkedin.com/in/onerealti",
+    HREF: "https://www.linkedin.com/in/murahmed",
   }
 ];

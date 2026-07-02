@@ -9,6 +9,5 @@ bullets:
   - "Designed backend APIs and optimized PostgreSQL schemas for improved concurrency and deployment reliability."
 skills: ["Python", "PostgreSQL", "Linux", "Docker", "Git", "Bash"]
 profiles: ["backend", "infrastructure"]
-importance: 3
+importance: 5
 ---
-Contract infrastructure development, database optimization, and CI/CD pipelines.

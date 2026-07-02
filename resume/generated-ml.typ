@@ -3,13 +3,13 @@
 
 #show: resume.with(
   name: "Murtaza S. Ahmed",
-  title: "Embedded & Distributed Systems Engineer (Ml focus)",
-  email: "murtazaofficial@proton.me",
+  title: "Undergrad Engineer | Distributed Systems, ML Systems & Infra (Ml focus)",
+  email: "murtazaofficial@protonmail.com",
   phone: "+91 9390341984",
   website: "https://onerealti.github.io/portfolio",
   github: "https://github.com/onerealti",
-  linkedin: "https://linkedin.com/in/onerealti",
-  summary: "Computer Engineering student specializing in embedded edge AI systems, distributed systems development, and backend infrastructure. Experienced in TensorRT-accelerated inference pipelines on NVIDIA Jetson Nano, decentralized media provenance protocols using IPFS/Arweave, and deterministic Linux system provisioning.",
+  linkedin: "https://www.linkedin.com/in/murahmed",
+  summary: "Focusing on AI infrastructure, particularly GPU cluster orchestration, inference systems, model routing, resource allocation and workload scheduling.",
 )
 
 = Professional Experience
@@ -18,7 +18,23 @@
   role: "Undergraduate Research Assistant (Edge AI Systems)",
   location: "Hyderabad, TG",
   date: "Dec 2025 -- Present",
-  bullets: ("Developed an embedded edge AI platform using an NVIDIA Jetson Nano, IMX719 camera module, and telemetry sensors.", "Optimized computer vision inference pipelines using TensorRT FP16 acceleration, achieving 40-70 ms latency (14-20 FPS) under constrained compute environments.", "Implemented deterministic execution and monitoring systems for stable long-duration deployment.", "Researched adaptive workload scheduling and hardware-aware resource allocation strategies for heterogeneous LLM inference systems in interdepartmental R&D program.", "Exploring fault-tolerant orchestration approaches for distributed AI workloads across mixed compute environments."),
+  bullets: ("Selected for an institution-funded R&D program under faculty supervision.", "Built a complete edge AI system on NVIDIA Jetson Nano 4GB Developer Kit, integrating an IMX719 camera and soil sensors for real-time field operation.", "Developed the on-device inference pipeline and executed real-time inference under compute and memory constraints.", "Achieved 40–70 ms latency (14–20 FPS) using TensorRT (FP16) optimization.", "Processed camera and sensor data continuously at 5–10 Hz with low-latency performance.", "Designed a stable execution loop enabling reliable operation over 4–6 hour field deployments."),
+)
+
+#exp-item(
+  company: "Department of Mechanical Engineering (MJCET)",
+  role: "Undergraduate Researcher (R&D Program)",
+  location: "Hyderabad, TG",
+  date: "March 2026 -- Present",
+  bullets: ("Design and implementation of an Adaptive Multi-Objective Policy Engine for Resilient Orchestration in Heterogeneous LLM Clusters.", "Researching adaptive workload scheduling and hardware-aware resource allocation strategies for heterogeneous LLM inference systems.", "Exploring fault-tolerant orchestration approaches for distributed AI workloads across mixed compute environments."),
+)
+
+#exp-item(
+  company: "Horizon Research Group",
+  role: "Technical Contributor (AI & ML)",
+  location: "Remote",
+  date: "April 2025 -- July 2025",
+  bullets: ("Contributed technical research regarding AI/ML workloads and inference performance metrics.", "Investigated distributed scheduling strategies and model routing logic for scale-out neural architectures."),
 )
 
 #exp-item(
@@ -26,7 +42,7 @@
   role: "Builder & Systems Architect",
   location: "Hyderabad, TG",
   date: "July 2025 -- Present",
-  bullets: ("Designing and implementing system to verify digital media provenance using blockchain and decentralized storage.", "Integrating AI modules for manipulation detection and automated claim extraction.", "Developing media provenance infrastructure using distributed storage systems including IPFS and Arweave.", "Building concurrent ingestion pipelines and immutable audit logging mechanisms for ML-based verification workflows."),
+  bullets: ("Designing and implementing a system to verify digital media provenance using blockchain and decentralized storage.", "Integrating AI modules for manipulation detection and automated claim extraction.", "Developing media provenance infrastructure using distributed storage systems including IPFS and Arweave.", "Building concurrent ingestion pipelines and immutable audit logging mechanisms for ML-based verification workflows."),
 )
 
 = Projects
@@ -63,5 +79,14 @@
   date: "May 2028",
   gpa: "",
   details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
+)
+
+#edu-item(
+  institution: "International School Dammam",
+  degree: "High School Diploma",
+  location: "Dammam, KSA",
+  date: "2024",
+  gpa: "",
+  details: (),
 )
 

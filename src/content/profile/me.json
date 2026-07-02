@@ -1,10 +1,10 @@
 {
   "name": "Murtaza S. Ahmed",
-  "title": "Embedded & Distributed Systems Engineer",
-  "email": "murtazaofficial@proton.me",
+  "title": "Undergrad Engineer | Distributed Systems, ML Systems & Infra",
+  "email": "murtazaofficial@protonmail.com",
   "phone": "+91 9390341984",
   "website": "https://onerealti.github.io/portfolio",
   "github": "https://github.com/onerealti",
-  "linkedin": "https://linkedin.com/in/onerealti",
-  "summary": "Computer Engineering student specializing in embedded edge AI systems, distributed systems development, and backend infrastructure. Experienced in TensorRT-accelerated inference pipelines on NVIDIA Jetson Nano, decentralized media provenance protocols using IPFS/Arweave, and deterministic Linux system provisioning."
+  "linkedin": "https://www.linkedin.com/in/murahmed",
+  "summary": "Focusing on AI infrastructure, particularly GPU cluster orchestration, inference systems, model routing, resource allocation and workload scheduling."
 }

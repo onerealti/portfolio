@@ -8,4 +8,4 @@ details:
   - "Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation"
 importance: 1
 ---
-Candidate for Bachelor of Engineering at MJCET (Osmania University). Active researcher in interdepartmental R&D programs on Edge AI systems and distributed workloads.
+Candidate for Bachelor of Engineering at MJCET (Osmania University). Active researcher in edge AI systems, distributed LLM orchestration policy engines, and heterogeneous cluster scheduling.
