@@ -161,7 +161,7 @@ function generateTypstMarkup(variant: string): string {
     const detailsStr = edu.details ? edu.details.map(d => `"${d.replace(/"/g, "\\\"")}"`).join(", ") : "";
     markup += `#edu-item(
   institution: "${edu.institution}",
-  degree: "${edu.degree}",
+  degree: "${edu.degree}${edu.fieldOfStudy ? ` in ${edu.fieldOfStudy}` : ""}",
   location: "${edu.location}",
   date: "${edu.dateStart ? `${edu.dateStart} -- ` : ""}${edu.dateEnd}",
   gpa: "${edu.gpa ?? ""}",

@@ -1,6 +1,7 @@
 ---
 institution: "Muffakham Jah College of Engineering & Technology (Osmania University)"
 degree: "Bachelor of Engineering"
+fieldOfStudy: "Mechanical Engineering"
 location: "Hyderabad, TG"
 dateEnd: "May 2028"
 details:

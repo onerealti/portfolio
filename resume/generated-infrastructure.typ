@@ -65,7 +65,7 @@
 = Education
 #edu-item(
   institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
-  degree: "Bachelor of Engineering",
+  degree: "Bachelor of Engineering in Mechanical Engineering",
   location: "Hyderabad, TG",
   date: "May 2028",
   gpa: "",
