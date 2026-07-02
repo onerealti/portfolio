@@ -1,0 +1,10 @@
+{
+  "name": "Arch Linux",
+  "category": "Systems",
+  "level": "Expert",
+  "profiles": [
+    "backend",
+    "infrastructure"
+  ],
+  "importance": 2
+}

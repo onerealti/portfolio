@@ -1,0 +1,10 @@
+{
+  "name": "Podman",
+  "category": "Systems",
+  "level": "Advanced",
+  "profiles": [
+    "backend",
+    "infrastructure"
+  ],
+  "importance": 5
+}

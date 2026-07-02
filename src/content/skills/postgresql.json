@@ -1,11 +1,11 @@
 {
-  "name": "Linux Kernel",
-  "category": "Systems & Infrastructure",
+  "name": "PostgreSQL",
+  "category": "Languages",
   "level": "Advanced",
   "profiles": [
     "backend",
     "distributed",
     "infrastructure"
   ],
-  "importance": 1
+  "importance": 4
 }

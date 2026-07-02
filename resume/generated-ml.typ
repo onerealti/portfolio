@@ -2,66 +2,66 @@
 #import "template.typ": *
 
 #show: resume.with(
-  name: "Alex Rivers",
-  title: "Systems & Infrastructure Engineer (Ml focus)",
-  email: "alex.rivers@example.com",
-  phone: "+1 (555) 019-2834",
-  website: "https://alexrivers.dev",
-  github: "https://github.com/alexrivers",
-  linkedin: "https://linkedin.com/in/alex-rivers",
-  summary: "Computer Science student specializing in distributed systems, storage engines, and ML training infrastructure. Experienced in building transactional key-value databases, implementing consensus algorithms, and optimizing high-throughput data processing pipelines. Passionate about kernel development, low-latency network programming, and platform automation.",
+  name: "Murtaza S. Ahmed",
+  title: "Embedded & Distributed Systems Engineer (Ml focus)",
+  email: "murtazaofficial@proton.me",
+  phone: "+91 9390341984",
+  website: "https://onerealti.github.io/portfolio",
+  github: "https://github.com/onerealti",
+  linkedin: "https://linkedin.com/in/onerealti",
+  summary: "Computer Engineering student specializing in embedded edge AI systems, distributed systems development, and backend infrastructure. Experienced in TensorRT-accelerated inference pipelines on NVIDIA Jetson Nano, decentralized media provenance protocols using IPFS/Arweave, and deterministic Linux system provisioning.",
 )
 
 = Professional Experience
 #exp-item(
-  company: "KernelCorp Technologies",
-  role: "Systems & Linux Kernel Intern",
-  location: "San Jose, CA (Remote)",
-  date: "May 2025 -- Aug 2025",
-  bullets: ("Designed and implemented an eBPF/XDP-based load-balancer that reduced packet processing latency by 35% compared to IPVS-based routing.", "Patched network driver queues to optimize cache-line utilization, resulting in a 12% increase in packet throughput for 100GbE interfaces.", "Developed a Linux Kernel Module (LKM) for virtual device drivers to mock high-frequency sensors for CI/CD test automation.", "Collaborated with upstream developers to patch a race condition in kernel slab memory allocation under heavy network load."),
+  company: "Department of Mechanical Engineering (MJCET)",
+  role: "Undergraduate Research Assistant (Edge AI Systems)",
+  location: "Hyderabad, TG",
+  date: "Dec 2025 -- Present",
+  bullets: ("Developed an embedded edge AI platform using an NVIDIA Jetson Nano, IMX719 camera module, and telemetry sensors.", "Optimized computer vision inference pipelines using TensorRT FP16 acceleration, achieving 40-70 ms latency (14-20 FPS) under constrained compute environments.", "Implemented deterministic execution and monitoring systems for stable long-duration deployment.", "Researched adaptive workload scheduling and hardware-aware resource allocation strategies for heterogeneous LLM inference systems in interdepartmental R&D program.", "Exploring fault-tolerant orchestration approaches for distributed AI workloads across mixed compute environments."),
 )
 
 #exp-item(
-  company: "StoreScale Systems",
-  role: "Distributed Storage Intern",
-  location: "Seattle, WA",
-  date: "May 2024 -- Aug 2024",
-  bullets: ("Integrated RocksDB as a pluggable storage engine for a custom Raft-based transactional database, improving write throughput by 40%.", "Engineered an asynchronous log-compaction pipeline in Go to reduce tail latency of client writes under disk I/O bottlenecks.", "Built a cluster simulation framework to perform partition testing (Jepsen-style) and validated correctness of linearizable reads.", "Optimized gRPC request-serialization paths using Protobuf custom-marshaling, achieving an 18% reduction in CPU utilization."),
+  company: "Verity (Decentralized Verification Platform)",
+  role: "Builder & Systems Architect",
+  location: "Hyderabad, TG",
+  date: "July 2025 -- Present",
+  bullets: ("Designing and implementing system to verify digital media provenance using blockchain and decentralized storage.", "Integrating AI modules for manipulation detection and automated claim extraction.", "Developing media provenance infrastructure using distributed storage systems including IPFS and Arweave.", "Building concurrent ingestion pipelines and immutable audit logging mechanisms for ML-based verification workflows."),
 )
 
 = Projects
 #proj-item(
-  title: "TensorFlow & PyTorch ML Training Orchestrator",
-  skills: ("Python", "PyTorch", "Kubernetes", "CUDA", "gRPC", "Docker"),
-  date: "Mar 2025",
-  bullets: ("Developed a custom Kubernetes controller in Go that schedules distributed PyTorch training jobs across multiple GPU-enabled nodes.", "Configured torch.distributed tensor-parallel setups with custom communication primitives, optimizing NCCL ring-allreduce performance.", "Implemented a dynamic fault-recovery agent that restarts failed worker pods, restoring from latest weights checkpoints in under 30 seconds.", "Designed an active GPU allocation scheduler that schedules training jobs to maximize NVLink interconnect bandwidth between GPUs."),
+  title: "Smart Agri Four-Legged Bot (SAFL-B)",
+  skills: ("C", "Python", "UART/Serial", "I2C", "GPIO", "Hardware Control"),
+  date: "Dec 2025",
+  bullets: ("Awarded 1st Place at the MAKEFORHYDERABAD 2-Day Makeathon for autonomous robotics systems integration.", "Implemented deterministic UART/Serial communication protocols for multi-joint motor control.", "Developed telemetry stabilization routines to reduce terrain-induced sensor and image noise."),
 )
 
 = Technical Skills
 #skill-category(
-  category: "Tools",
-  items: ("Git & GitHub Actions", "Prometheus & Grafana"),
-)
-#skill-category(
-  category: "ML & AI Infrastructure",
-  items: ("PyTorch", "CUDA & NCCL", "Triton Inference Server"),
-)
-#skill-category(
   category: "Languages",
-  items: ("Rust", "C++", "Go", "Python", "C"),
+  items: ("C", "Python", "Bash", "Git"),
 )
 #skill-category(
-  category: "Systems & Infrastructure",
-  items: ("Kubernetes", "Docker"),
+  category: "Systems",
+  items: ("Linux", "Docker", "Kubernetes"),
+)
+#skill-category(
+  category: "ML/Edge Computing",
+  items: ("TensorRT", "NVIDIA Jetson Nano"),
+)
+#skill-category(
+  category: "Hardware & Interfaces",
+  items: ("UART/Serial", "I2C", "GPIO"),
 )
 
 = Education
 #edu-item(
-  institution: "Tech Institute of Technology",
-  degree: "Bachelor of Science",
-  location: "Boston, MA",
-  date: "Sept 2023 -- May 2027",
-  gpa: "3.95/4.00",
-  details: ("Teaching Assistant: Distributed Systems (CS 452), Operating Systems (CS 321)", "Coursework: Distributed Systems, Database Internals, Compiler Construction, Computer Architecture, Advanced Networks"),
+  institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
+  degree: "Bachelor of Engineering",
+  location: "Hyderabad, TG",
+  date: "Sept 2024 -- May 2028",
+  gpa: "8.9/10.0",
+  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation", "Exploring adaptive resource scheduling and heterogeneous LLM inference orchestrators"),
 )
 

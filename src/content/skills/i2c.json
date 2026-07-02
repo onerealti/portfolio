@@ -1,0 +1,11 @@
+{
+  "name": "I2C",
+  "category": "Hardware & Interfaces",
+  "level": "Advanced",
+  "profiles": [
+    "ml",
+    "distributed",
+    "backend"
+  ],
+  "importance": 2
+}

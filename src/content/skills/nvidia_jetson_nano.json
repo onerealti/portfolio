@@ -1,0 +1,10 @@
+{
+  "name": "NVIDIA Jetson Nano",
+  "category": "ML/Edge Computing",
+  "level": "Advanced",
+  "profiles": [
+    "ml",
+    "distributed"
+  ],
+  "importance": 2
+}

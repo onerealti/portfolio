@@ -1,12 +1,12 @@
 {
   "name": "Python",
   "category": "Languages",
-  "level": "Proficient",
+  "level": "Expert",
   "profiles": [
     "backend",
     "distributed",
     "infrastructure",
     "ml"
   ],
-  "importance": 4
+  "importance": 2
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Git & GitHub Actions",
-  "category": "Tools",
+  "name": "Git",
+  "category": "Languages",
   "level": "Expert",
   "profiles": [
     "backend",
@@ -8,5 +8,5 @@
     "infrastructure",
     "ml"
   ],
-  "importance": 1
+  "importance": 5
 }

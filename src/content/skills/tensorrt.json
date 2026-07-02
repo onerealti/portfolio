@@ -1,0 +1,10 @@
+{
+  "name": "TensorRT",
+  "category": "ML/Edge Computing",
+  "level": "Advanced",
+  "profiles": [
+    "ml",
+    "distributed"
+  ],
+  "importance": 1
+}

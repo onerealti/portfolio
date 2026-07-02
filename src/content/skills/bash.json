@@ -1,12 +1,12 @@
 {
-  "name": "Rust",
+  "name": "Bash",
   "category": "Languages",
-  "level": "Proficient",
+  "level": "Advanced",
   "profiles": [
     "backend",
     "distributed",
     "infrastructure",
     "ml"
   ],
-  "importance": 1
+  "importance": 3
 }

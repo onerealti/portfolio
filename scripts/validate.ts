@@ -39,7 +39,7 @@ function parseMarkdownFrontmatter(filePath: string): Record<string, unknown> {
   if (!data || typeof data !== "object") {
     throw new Error("Failed to parse YAML frontmatter.");
   }
-  return data;
+  return data as Record<string, unknown>;
 }
 
 function validateAll() {

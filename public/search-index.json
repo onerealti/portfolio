@@ -28,51 +28,34 @@
     ]
   },
   {
-    "id": "lsm_db",
-    "title": "AetherDB: MVCC Key-Value Engine",
-    "description": "A high-performance LSM-Tree transactional storage engine in C++ featuring multi-version concurrency control and write-ahead logs for crash safety.",
+    "id": "deterministic_workspace",
+    "title": "Deterministic Workspace Provisioning",
+    "description": "Automated configuration and deployment pipelines for lightweight, reproducible Arch Linux desktop workstations.",
     "category": "project",
-    "url": "/projects/lsm_db",
-    "date": "May 2024",
+    "url": "/projects/deterministic_workspace",
+    "date": "June 2025",
     "tags": [
-      "C++",
-      "LSM-Tree",
-      "MVCC",
-      "POSIX",
-      "WAL",
-      "Transactions"
+      "Bash",
+      "Linux",
+      "Arch Linux",
+      "Podman",
+      "Git"
     ]
   },
   {
-    "id": "ml_orchestrator",
-    "title": "TensorFlow & PyTorch ML Training Orchestrator",
-    "description": "A Kubernetes-native orchestration pipeline and custom scheduler for training large language models utilizing pipeline and tensor parallelism.",
+    "id": "safl_b",
+    "title": "Smart Agri Four-Legged Bot (SAFL-B)",
+    "description": "An autonomous robotics systems integration project, awarded 1st Place at MAKEFORHYDERABAD Makeathon, featuring multi-joint motor control and noise telemetry.",
     "category": "project",
-    "url": "/projects/ml_orchestrator",
-    "date": "Mar 2025",
+    "url": "/projects/safl_b",
+    "date": "Dec 2025",
     "tags": [
+      "C",
       "Python",
-      "PyTorch",
-      "Kubernetes",
-      "CUDA",
-      "gRPC",
-      "Docker"
-    ]
-  },
-  {
-    "id": "raft_consensus",
-    "title": "Distributed Raft Consensus Engine",
-    "description": "A production-grade implementation of the Raft consensus protocol in Go, featuring dynamic membership changes, log compaction, and linearizable reads.",
-    "category": "project",
-    "url": "/projects/raft_consensus",
-    "date": "Dec 2024",
-    "tags": [
-      "Go",
-      "Raft",
-      "gRPC",
-      "Protobuf",
-      "Linearizability",
-      "Jepsen"
+      "UART/Serial",
+      "I2C",
+      "GPIO",
+      "Hardware Control"
     ]
   }
 ]

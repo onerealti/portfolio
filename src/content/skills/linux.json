@@ -1,6 +1,6 @@
 {
-  "name": "Go",
-  "category": "Languages",
+  "name": "Linux",
+  "category": "Systems",
   "level": "Expert",
   "profiles": [
     "backend",
@@ -8,5 +8,5 @@
     "infrastructure",
     "ml"
   ],
-  "importance": 3
+  "importance": 1
 }

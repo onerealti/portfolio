@@ -1,0 +1,11 @@
+{
+  "name": "GPIO",
+  "category": "Hardware & Interfaces",
+  "level": "Advanced",
+  "profiles": [
+    "ml",
+    "distributed",
+    "backend"
+  ],
+  "importance": 3
+}

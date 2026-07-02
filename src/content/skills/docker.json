@@ -1,6 +1,6 @@
 {
   "name": "Docker",
-  "category": "Systems & Infrastructure",
+  "category": "Systems",
   "level": "Advanced",
   "profiles": [
     "backend",
@@ -8,5 +8,5 @@
     "infrastructure",
     "ml"
   ],
-  "importance": 7
+  "importance": 3
 }
