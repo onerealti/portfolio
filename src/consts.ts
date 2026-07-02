@@ -1,8 +1,8 @@
 import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
-  NAME: "Alex Rivers",
-  EMAIL: "alex.rivers@example.com",
+  NAME: "Murtaza S. Ahmed",
+  EMAIL: "murtazaofficial@proton.me",
   NUM_POSTS_ON_HOMEPAGE: 3,
   NUM_WORKS_ON_HOMEPAGE: 2,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
@@ -10,7 +10,7 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Alex Rivers - Systems & Infrastructure Engineer. Portoflio focusing on distributed systems, databases, and low-latency programming.",
+  DESCRIPTION: "Murtaza S. Ahmed - Embedded & Distributed Systems Engineer. Portfolio focusing on edge AI, IoT hardware interfaces, and decentralized networks.",
 };
 
 export const ABOUT: Metadata = {
@@ -18,9 +18,14 @@ export const ABOUT: Metadata = {
   DESCRIPTION: "Academic background, research work, and engineering competencies.",
 };
 
+export const WORK: Metadata = {
+  TITLE: "Work",
+  DESCRIPTION: "Professional roles, edge AI research positions, and software engineering experience.",
+};
+
 export const RESUME: Metadata = {
   TITLE: "Resume",
-  DESCRIPTION: "Professional experience, projects, skills, and academic history.",
+  DESCRIPTION: "HTML resume and typeset PDF variants compiled from shared content models.",
 };
 
 export const BLOG: Metadata = {
@@ -30,7 +35,7 @@ export const BLOG: Metadata = {
 
 export const PROJECTS: Metadata = {
   TITLE: "Projects",
-  DESCRIPTION: "High-performance codebases and system tools developed from scratch.",
+  DESCRIPTION: "Robotics systems integration, workspace provisioning pipelines, and software tools.",
 };
 
 export const OPEN_SOURCE: Metadata = {
@@ -41,10 +46,10 @@ export const OPEN_SOURCE: Metadata = {
 export const SOCIALS: Socials = [
   { 
     NAME: "github",
-    HREF: "https://github.com/alexrivers"
+    HREF: "https://github.com/onerealti"
   },
   { 
     NAME: "linkedin",
-    HREF: "https://linkedin.com/in/alex-rivers",
+    HREF: "https://linkedin.com/in/onerealti",
   }
 ];
