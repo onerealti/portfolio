@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineCollection } from "astro:content";
 import {
   ProfileSchema,

@@ -9,13 +9,14 @@ import type {
   Project,
   Writing,
 } from "../src/lib/schemas";
+import { z } from "zod";
 
 const CONTENT_DIR = path.join(process.cwd(), "src/content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR);
 
-function parseMarkdownFrontmatter<T>(filePath: string, schema: any): T {
+function parseMarkdownFrontmatter<T>(filePath: string, schema: z.ZodTypeAny): T {
   const content = fs.readFileSync(filePath, "utf-8");
   const parts = content.split(/^---$/m);
   if (parts.length < 3) {
@@ -59,8 +60,8 @@ function buildSearchIndex() {
             tags: data.tags,
           });
         }
-      } catch (err: any) {
-        console.error(`❌ Error parsing writing file: ${file}`, err.message);
+      } catch (err: unknown) {
+        console.error(`❌ Error parsing writing file: ${file}`, err instanceof Error ? err.message : String(err));
       }
     });
   }
@@ -84,8 +85,8 @@ function buildSearchIndex() {
             tags: data.skills, // Use skills as search tags
           });
         }
-      } catch (err: any) {
-        console.error(`❌ Error parsing project file: ${file}`, err.message);
+      } catch (err: unknown) {
+        console.error(`❌ Error parsing project file: ${file}`, err instanceof Error ? err.message : String(err));
       }
     });
   }

@@ -28,7 +28,7 @@ const collections: CollectionConfig[] = [
   { dirName: "writing", schema: WritingSchema, isJson: false },
 ];
 
-function parseMarkdownFrontmatter(filePath: string): any {
+function parseMarkdownFrontmatter(filePath: string): Record<string, unknown> {
   const content = fs.readFileSync(filePath, "utf-8");
   const parts = content.split(/^---$/m);
   if (parts.length < 3) {
@@ -63,7 +63,7 @@ function validateAll() {
     for (const file of files) {
       const filePath = path.join(dirPath, file);
       try {
-        let parsedData: any;
+        let parsedData: unknown;
         if (collection.isJson) {
           const raw = fs.readFileSync(filePath, "utf-8");
           parsedData = JSON.parse(raw);
@@ -79,10 +79,10 @@ function validateAll() {
         } else {
           console.log(`  ✅ ${file}`);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         hasErrors = true;
         console.error(`❌ Error reading or parsing [${collection.dirName}/${file}]:`);
-        console.error(`  ${err.message}`);
+        console.error(`  ${err instanceof Error ? err.message : String(err)}`);
       }
     }
   }

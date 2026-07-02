@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
 import * as yaml from "js-yaml";
+import { z } from "zod";
 import {
   ProfileSchema,
   ExperienceSchema,
@@ -25,7 +26,7 @@ const PUBLIC_DIR = path.join(process.cwd(), "public");
 if (!fs.existsSync(RESUME_DIR)) fs.mkdirSync(RESUME_DIR);
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR);
 
-function parseMarkdownFrontmatter<T>(filePath: string, schema: any): T {
+function parseMarkdownFrontmatter<T>(filePath: string, schema: z.ZodTypeAny): T {
   const content = fs.readFileSync(filePath, "utf-8");
   const parts = content.split(/^---$/m);
   if (parts.length < 3) {
@@ -36,7 +37,7 @@ function parseMarkdownFrontmatter<T>(filePath: string, schema: any): T {
   return schema.parse(parsed) as T;
 }
 
-function loadJSON<T>(filePath: string, schema: any): T {
+function loadJSON<T>(filePath: string, schema: z.ZodTypeAny): T {
   const raw = fs.readFileSync(filePath, "utf-8");
   const parsed = JSON.parse(raw);
   return schema.parse(parsed) as T;
@@ -120,7 +121,7 @@ function generateTypstMarkup(variant: string): string {
 `;
 
   filteredExperience.forEach(exp => {
-    const bulletsStr = exp.bullets.map(b => `"${b.replace(/"/g, '\\"')}"`).join(", ");
+    const bulletsStr = exp.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
     markup += `#exp-item(
   company: "${exp.company}",
   role: "${exp.role}",
@@ -133,7 +134,7 @@ function generateTypstMarkup(variant: string): string {
 
   markup += `= Projects\n`;
   filteredProjects.forEach(proj => {
-    const bulletsStr = proj.bullets.map(b => `"${b.replace(/"/g, '\\"')}"`).join(", ");
+    const bulletsStr = proj.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
     const skillsStr = proj.skills.map(s => `"${s}"`).join(", ");
     markup += `#proj-item(
   title: "${proj.title}",
@@ -157,7 +158,7 @@ function generateTypstMarkup(variant: string): string {
 
   markup += `= Education\n`;
   sortedEducation.forEach(edu => {
-    const detailsStr = edu.details ? edu.details.map(d => `"${d.replace(/"/g, '\\"')}"`).join(", ") : "";
+    const detailsStr = edu.details ? edu.details.map(d => `"${d.replace(/"/g, "\\\"")}"`).join(", ") : "";
     markup += `#edu-item(
   institution: "${edu.institution}",
   degree: "${edu.degree}",
@@ -199,9 +200,9 @@ variants.forEach(variant => {
       fs.copyFileSync(pdfPath, path.join(PUBLIC_DIR, "resume.pdf"));
       console.log(`  🌟 Set as default: public/resume.pdf`);
     }
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(`❌ Failed to compile resume for variant: ${variant}`);
-    console.error(err.message);
+    console.error(err instanceof Error ? err.message : String(err));
   }
 });
 
