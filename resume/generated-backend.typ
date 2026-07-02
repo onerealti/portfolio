@@ -12,7 +12,17 @@
   summary: "I'm a systems engineer and undergraduate researcher focused on building the future of AI infrastructure. I design resilient cluster orchestration policy engines, optimize edge computer vision pipelines, and build custom hardware platforms. Welcome to my digital workspace—feel free to check out my latest research, open-source projects, or download my typeset resumes!",
 )
 
-= Professional Experience
+= EDUCATION
+#edu-item(
+  institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
+  degree: "Bachelor of Engineering in Mechanical Engineering",
+  location: "Hyderabad, TG",
+  date: "May 2028",
+  gpa: "",
+  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
+)
+
+= EXPERIENCE
 #exp-item(
   company: "Department of Mechanical Engineering (MJCET)",
   role: "Undergraduate Research Assistant (Edge AI Systems)",
@@ -53,7 +63,7 @@
   bullets: ("Migrated client applications to containerized Linux deployment environments with automated CI/CD workflows.", "Designed backend APIs and optimized PostgreSQL schemas for improved concurrency and deployment reliability."),
 )
 
-= Projects
+= PROJECTS
 #proj-item(
   title: "Smart Agri Four-Legged Bot (SAFL-B)",
   skills: ("C", "Python", "TensorRT", "NVIDIA Jetson Nano", "Arduino Due", "SolidWorks", "FEA", "UART/Serial"),
@@ -68,7 +78,7 @@
   bullets: ("Built automated provisioning scripts for lightweight developer workstation deployment using Arch Linux and custom dotfiles.", "Configured layered build pipelines to build reproducible container environments, separating high-current ML layers from system packages.", "Automated dependency setups, window manager configurations (i3wm), and performance optimizations for Intel/NVIDIA drivers."),
 )
 
-= Technical Skills
+= TOOLS & METHODS
 #skill-category(
   category: "Languages",
   items: ("C", "Python", "Bash", "PostgreSQL", "Git"),
@@ -80,15 +90,5 @@
 #skill-category(
   category: "Hardware & Interfaces",
   items: ("UART/Serial", "I2C", "GPIO"),
-)
-
-= Education
-#edu-item(
-  institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
-  degree: "Bachelor of Engineering in Mechanical Engineering",
-  location: "Hyderabad, TG",
-  date: "May 2028",
-  gpa: "",
-  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
 )
 

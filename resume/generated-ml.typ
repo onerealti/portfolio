@@ -12,7 +12,17 @@
   summary: "I'm a systems engineer and undergraduate researcher focused on building the future of AI infrastructure. I design resilient cluster orchestration policy engines, optimize edge computer vision pipelines, and build custom hardware platforms. Welcome to my digital workspace—feel free to check out my latest research, open-source projects, or download my typeset resumes!",
 )
 
-= Professional Experience
+= EDUCATION
+#edu-item(
+  institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
+  degree: "Bachelor of Engineering in Mechanical Engineering",
+  location: "Hyderabad, TG",
+  date: "May 2028",
+  gpa: "",
+  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
+)
+
+= EXPERIENCE
 #exp-item(
   company: "Department of Mechanical Engineering (MJCET)",
   role: "Undergraduate Research Assistant (Edge AI Systems)",
@@ -45,7 +55,7 @@
   bullets: ("Designing and implementing a system to verify digital media provenance using blockchain and decentralized storage.", "Integrating AI modules for manipulation detection and automated claim extraction.", "Developing media provenance infrastructure using distributed storage systems including IPFS and Arweave.", "Building concurrent ingestion pipelines and immutable audit logging mechanisms for ML-based verification workflows."),
 )
 
-= Projects
+= PROJECTS
 #proj-item(
   title: "Smart Agri Four-Legged Bot (SAFL-B)",
   skills: ("C", "Python", "TensorRT", "NVIDIA Jetson Nano", "Arduino Due", "SolidWorks", "FEA", "UART/Serial"),
@@ -53,7 +63,7 @@
   bullets: ("Awarded 1st Place at the city-wide MAKEFORHYDERABAD Makeathon (organized by Titan & SIT Hyderabad) for autonomous robotics integration.", "Designed a hybrid 3mm steel chassis and custom 3D-printed modular articulated planar legs featuring passive compliance and internal wire routing channels.", "Validated structural load paths using Finite Element Analysis (FEA) under static vertical loads, bumps, and probe insertions with a minimum safety factor of 2.04.", "Integrated a local CNN weed classification model on NVIDIA Jetson Nano, achieving real-time inference (9.2 FPS) using TensorRT FP16 acceleration.", "Designed low-level kinematic control systems using an Arduino Due to orchestrate H-Bridge DC motor actuators and high-current ESCs."),
 )
 
-= Technical Skills
+= TOOLS & METHODS
 #skill-category(
   category: "Languages",
   items: ("C", "Python", "Bash", "Git"),
@@ -69,15 +79,5 @@
 #skill-category(
   category: "Hardware & Interfaces",
   items: ("UART/Serial", "I2C", "GPIO"),
-)
-
-= Education
-#edu-item(
-  institution: "Muffakham Jah College of Engineering & Technology (Osmania University)",
-  degree: "Bachelor of Engineering in Mechanical Engineering",
-  location: "Hyderabad, TG",
-  date: "May 2028",
-  gpa: "",
-  details: ("Relevant Coursework: Scientific Computing, Embedded Systems Programming, System Modeling & Simulation",),
 )
 

@@ -117,46 +117,9 @@ function generateTypstMarkup(variant: string): string {
   summary: "${profile.summary}",
 )
 
-= Professional Experience
+= EDUCATION
 `;
 
-  filteredExperience.forEach(exp => {
-    const bulletsStr = exp.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
-    markup += `#exp-item(
-  company: "${exp.company}",
-  role: "${exp.role}",
-  location: "${exp.location}",
-  date: "${exp.dateStart} -- ${exp.dateEnd}",
-  bullets: (${bulletsStr}${exp.bullets.length === 1 ? "," : ""}),
-)
-\n`;
-  });
-
-  markup += `= Projects\n`;
-  filteredProjects.forEach(proj => {
-    const bulletsStr = proj.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
-    const skillsStr = proj.skills.map(s => `"${s}"`).join(", ");
-    markup += `#proj-item(
-  title: "${proj.title}",
-  skills: (${skillsStr}${proj.skills.length === 1 ? "," : ""}),
-  date: "${proj.date}",
-  bullets: (${bulletsStr}${proj.bullets.length === 1 ? "," : ""}),
-)
-\n`;
-  });
-
-  markup += `= Technical Skills\n`;
-  for (const [category, items] of Object.entries(skillsByCategory)) {
-    const itemsStr = items.map(i => `"${i}"`).join(", ");
-    markup += `#skill-category(
-  category: "${category}",
-  items: (${itemsStr}${items.length === 1 ? "," : ""}),
-)
-`;
-  }
-  markup += `\n`;
-
-  markup += `= Education\n`;
   sortedEducation.forEach(edu => {
     const detailsStr = edu.details ? edu.details.map(d => `"${d.replace(/"/g, "\\\"")}"`).join(", ") : "";
     markup += `#edu-item(
@@ -169,6 +132,50 @@ function generateTypstMarkup(variant: string): string {
 )
 \n`;
   });
+
+  markup += `= EXPERIENCE\n`;
+  filteredExperience.forEach(exp => {
+    const bulletsStr = exp.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
+    markup += `#exp-item(
+  company: "${exp.company}",
+  role: "${exp.role}",
+  location: "${exp.location}",
+  date: "${exp.dateStart} -- ${exp.dateEnd}",
+  bullets: (${bulletsStr}${exp.bullets.length === 1 ? "," : ""}),
+)
+\n`;
+  });
+
+  markup += `= PROJECTS\n`;
+  filteredProjects.forEach(proj => {
+    const bulletsStr = proj.bullets.map(b => `"${b.replace(/"/g, "\\\"")}"`).join(", ");
+    const skillsStr = proj.skills.map(s => `"${s}"`).join(", ");
+    markup += `#proj-item(
+  title: "${proj.title}",
+  skills: (${skillsStr}${proj.skills.length === 1 ? "," : ""}),
+  date: "${proj.date}",
+  bullets: (${bulletsStr}${proj.bullets.length === 1 ? "," : ""}),
+)
+\n`;
+  });
+
+  markup += `= TOOLS & METHODS\n`;
+  const categoryOrder = ["Languages", "Systems", "ML/Edge Computing", "Hardware & Interfaces"];
+  const sortedCategories = Object.keys(skillsByCategory).sort((a, b) => {
+    return categoryOrder.indexOf(a) - categoryOrder.indexOf(b);
+  });
+
+  for (const category of sortedCategories) {
+    const items = skillsByCategory[category];
+    if (!items) continue;
+    const itemsStr = items.map(i => `"${i}"`).join(", ");
+    markup += `#skill-category(
+  category: "${category}",
+  items: (${itemsStr}${items.length === 1 ? "," : ""}),
+)
+`;
+  }
+  markup += `\n`;
 
   return markup;
 }
