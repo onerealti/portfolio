@@ -63,7 +63,7 @@ const base = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 <ClientRouter  />
 
 <!-- RSS Link -->
-<link rel="alternate" type="application/rss+xml" title={SITE.NAME} href={new URL(`${base}/rss.xml`, Astro.site.origin)} />
+<link rel="alternate" type="application/rss+xml" title={SITE.NAME} href={new URL(`${base}/rss.xml`, Astro.site?.origin ?? "https://onerealti.github.io")} />
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
