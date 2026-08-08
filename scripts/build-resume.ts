@@ -195,9 +195,10 @@ variants.forEach(variant => {
     fs.writeFileSync(typstPath, markup, "utf-8");
     console.log(`  ✅ Generated Typst file for: ${variant}`);
 
-    // Compile Typst to PDF using local typst binary
+    // Compile Typst to PDF using local typst binary or system typst
     const pdfPath = path.join(PUBLIC_DIR, `resume-${variant}.pdf`);
-    const typstCmd = `./bin/typst compile --font-path ./AGPro ${typstPath} ${pdfPath}`;
+    const binPath = fs.existsSync("./bin/typst") ? "./bin/typst" : (fs.existsSync("./bin/typst.exe") ? ".\\bin\\typst.exe" : "typst");
+    const typstCmd = `${binPath} compile --font-path ./AGPro "${typstPath}" "${pdfPath}"`;
     execSync(typstCmd, { stdio: "inherit" });
     console.log(`  📄 Compiled PDF for: ${variant} -> public/resume-${variant}.pdf`);
 
