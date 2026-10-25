@@ -10,7 +10,7 @@ export default defineConfig({
   
   // Update this if deploying to a subdirectory on GitHub Pages (e.g., '/portfolio')
   // If deploying to a custom domain or a user page (your-username.github.io), set base to '/' or remove it.
-  base: "/portfolio",
+  base: "/",
   
   integrations: [mdx(), sitemap(), tailwind()],
 });
