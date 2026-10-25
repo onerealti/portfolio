@@ -75,7 +75,7 @@ function validateAll() {
         if (!result.success) {
           hasErrors = true;
           console.error(`❌ Validation failed in [${collection.dirName}/${file}]:`);
-          console.error(JSON.stringify(result.error.format(), null, 2));
+          console.error(JSON.stringify(result.error.issues, null, 2));
         } else {
           console.log(`  ✅ ${file}`);
         }

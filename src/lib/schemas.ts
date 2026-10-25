@@ -3,11 +3,11 @@ import { z } from "zod";
 export const ProfileSchema = z.object({
   name: z.string(),
   title: z.string(),
-  email: z.string().email(),
+  email: z.email(),
   phone: z.string(),
-  website: z.string().url(),
-  github: z.string().url(),
-  linkedin: z.string().url(),
+  website: z.url(),
+  github: z.url(),
+  linkedin: z.url(),
   summary: z.string(),
 });
 
@@ -39,8 +39,8 @@ export const EducationSchema = z.object({
 export const ProjectSchema = z.object({
   title: z.string(),
   description: z.string(),
-  repoURL: z.string().url().optional(),
-  demoURL: z.string().url().optional(),
+  repoURL: z.url().optional(),
+  demoURL: z.url().optional(),
   date: z.string(),
   skills: z.array(z.string()),
   bullets: z.array(z.string()),

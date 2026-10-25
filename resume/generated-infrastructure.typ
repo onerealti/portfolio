@@ -6,7 +6,7 @@
   title: "Undergrad Engineer | Distributed Systems, ML Systems & Infra (Infrastructure focus)",
   email: "murtazaofficial@protonmail.com",
   phone: "+91 9390341984",
-  website: "https://onerealti.github.io/portfolio",
+  website: "https://murtaza.rocks",
   github: "https://github.com/onerealti",
   linkedin: "https://www.linkedin.com/in/murahmed",
   summary: "I'm a systems engineer and undergraduate researcher focused on building the future of AI infrastructure. I design resilient cluster orchestration policy engines, optimize edge computer vision pipelines, and build custom hardware platforms. Welcome to my digital workspace—feel free to check out my latest research, open-source projects, or download my typeset resumes!",
